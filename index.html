@@ -3,38 +3,104 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nummer Salg</title>
+
+<title>Nummer Salg – Eksklusive mobilnumre i Norge</title>
+
+<meta name="description" content="Nummer Salg er Norges nye markedsplass for kjøp og salg av eksklusive VIP- og gullnumre. Finn et mobilnummer som er lett å huske – for privat eller bedrift.">
+<meta name="keywords" content="gullnummer, vip nummer, mobilnummer salg, eksklusive telefonnummer, nummer salg norge">
+<meta name="author" content="Nummer Salg">
+
+<meta property="og:title" content="Nummer Salg – Eksklusive mobilnumre">
+<meta property="og:description" content="Kjøp unike og lett huskbare mobilnumre. VIP- og gullnumre for privatpersoner og bedrifter.">
+<meta property="og:type" content="website">
+
 </head>
 
 <body style="margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#f5f6f8;">
 
-<header style="background:#0b0b0b;color:#fff;padding:18px 14px;">
+<a href="#innhold" style="position:absolute;left:-9999px;">Hopp til innhold</a>
+
+<!-- HEADER -->
+<header style="background:#0b0b0b;color:#fff;padding:20px 16px;">
   <h1 style="margin:0;font-size:22px;">Nummer Salg</h1>
   <p style="margin:6px 0 0;font-size:13px;color:#cfcfcf;">
     Norges nye markedsplass for eksklusive mobilnumre
   </p>
 </header>
 
-<section style="padding:14px;font-size:13px;color:#333;">
-  Håndplukkede VIP- og gullnumre for privatpersoner og bedrifter.
+<!-- INTRO -->
+<section style="padding:16px;font-size:13px;color:#333;">
+  VIP- og gullnumre for privatpersoner og bedrifter.
 </section>
 
-<div style="padding:0 14px 10px;display:flex;gap:8px;flex-wrap:wrap;">
+<!-- SORTERING -->
+<div style="padding:0 16px 10px;display:flex;gap:8px;flex-wrap:wrap;">
   <button id="asc">Pris: lav → høy</button>
   <button id="desc">Pris: høy → lav</button>
 </div>
 
-<div id="count" style="padding:0 14px 10px;font-size:13px;color:#555;"></div>
+<!-- COUNT -->
+<div id="count" style="padding:0 16px 10px;font-size:13px;color:#555;"></div>
 
+<!-- GRID -->
+<div id="innhold"></div>
 <div id="grid" style="
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
   gap:14px;
-  padding:0 14px 40px;
+  padding:0 16px 40px;
 "></div>
 
+<!-- OM OSS -->
+<section style="background:#fff;padding:24px 16px;font-size:13px;line-height:1.6;">
+  <h2>Om oss</h2>
+  <p>
+    Nummer Salg er en uavhengig plattform for kjøp og salg av eksklusive mobilnumre.
+    Vi tror at et telefonnummer kan være mer enn bare tall – det kan være identitet,
+    profesjonalitet og et varig inntrykk.
+  </p>
+
+  <h3>Vår visjon</h3>
+  <p>
+    Vi ønsker å gjøre markedet for gullnumre mer tilgjengelig, oversiktlig og trygt.
+    Et eksklusivt nummer skal være like enkelt å handle som et domenenavn.
+  </p>
+
+  <h3>Hvorfor gullnummer?</h3>
+  <ul>
+    <li>✔ Enkle å huske</li>
+    <li>✔ Profesjonelt uttrykk for bedrifter</li>
+    <li>✔ Personlig preg</li>
+    <li>✔ Kan ha langsiktig verdi</li>
+  </ul>
+</section>
+
+<!-- KONTAKT -->
+<section style="padding:24px 16px;font-size:13px;background:#f0f1f3;">
+  <h2>Kontakt oss</h2>
+  <p>
+    Har du spørsmål, ønsker å kjøpe et nummer eller vil gi bud?
+  </p>
+  <p>
+    📧 E-post: <strong>hei@numbersalg.no</strong><br>
+    📱 SMS / telefon: <strong>955 57 474</strong>
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#0b0b0b;color:#ccc;padding:20px 16px;font-size:12px;">
+  <p style="margin:0 0 6px;">
+    © 2025 Nummer Salg – Alle rettigheter reservert
+  </p>
+  <p style="margin:0;">
+    Uavhengig markedsplass for mobilnumre i Norge
+  </p>
+</footer>
+
+<!-- SCRIPT (AYNI MANTIK) -->
 <script>
-const FINN_URL =  "https://www.finn.no/recommerce/forsale/search?location=1.22034.20068&location=1.20003.20057&sub_category=1.91.3106";
+const FINN_URL =
+  "https://www.finn.no/recommerce/forsale/search?location=1.22034.20068&location=1.20003.20057&sub_category=1.91.3106";
 const PROXY_URL =
   "https://corsproxy.io/?" + encodeURIComponent(FINN_URL);
 
@@ -42,135 +108,56 @@ const SMS_NUMBER = "95557474";
 let DATA = [];
 
 function fixImage(img){
-  img.style.width = "100%";
-  img.style.height = "auto";
-  img.style.objectFit = "unset";
+  img.style.width="100%";
+  img.style.height="auto";
+  img.style.objectFit="unset";
   img.removeAttribute("height");
-  img.style.display = "block";
 }
 
 fetch(PROXY_URL)
-  .then(r => r.text())
-  .then(html => {
-    const doc = new DOMParser().parseFromString(html,"text/html");
-    const list = doc.querySelector(".sf-result-list");
-    if(!list) return;
+.then(r=>r.text())
+.then(html=>{
+  const doc=new DOMParser().parseFromString(html,"text/html");
+  const list=doc.querySelector(".sf-result-list");
+  if(!list)return;
 
-    DATA = Array.from(list.children).map(item => {
+  DATA=[...list.children].map(item=>{
+    item.querySelectorAll(".text-xs.s-text-subtle.flex.justify-between").forEach(e=>e.remove());
+    item.querySelectorAll("a").forEach(a=>{a.removeAttribute("href");a.style.pointerEvents="none";});
 
-      item.querySelectorAll(
-        ".text-xs.s-text-subtle.flex.justify-between"
-      ).forEach(e=>e.remove());
-
-      item.querySelectorAll("a").forEach(a=>{
-        a.removeAttribute("href");
-        a.style.pointerEvents="none";
-      });
-
-      const img = item.querySelector("img");
-      const titleEl = item.querySelector("h2");
-      const title = titleEl ? titleEl.innerText.trim() : "";
-      const priceSpan = item.querySelector("span");
-
-      let price = 0;
-      if(priceSpan){
-        price = parseInt(priceSpan.textContent.replace(/\D/g,"")) || 0;
-      }
-
-      return { img, title, price };
-    });
-
-    document.getElementById("count").innerText =
-      `Totalt ${DATA.length} annonser`;
-
-    render("asc");
+    const img=item.querySelector("img");
+    const title=item.querySelector("h2")?.innerText||"";
+    const price=parseInt(item.querySelector("span")?.innerText.replace(/\D/g,""))||0;
+    return{img,title,price};
   });
 
+  document.getElementById("count").innerText=`Totalt ${DATA.length} annonser`;
+  render("asc");
+});
+
 function render(dir){
-  const grid = document.getElementById("grid");
-  grid.innerHTML = "";
-
-  const sorted = [...DATA].sort((a,b)=>
-    dir==="asc"?a.price-b.price:b.price-a.price
-  );
-
-  sorted.forEach(o=>{
-    const card = document.createElement("div");
-    card.style.background="#fff";
-    card.style.borderRadius="14px";
-    card.style.overflow="hidden";
-    card.style.boxShadow="0 4px 12px rgba(0,0,0,.08)";
-    card.style.display="flex";
-    card.style.flexDirection="column";
-
-    if(o.img){
-      const img=o.img.cloneNode(true);
-      fixImage(img);
-      card.appendChild(img);
-    }
-
-    const body=document.createElement("div");
-    body.style.padding="10px";
-    body.style.flex="1";
-
-    const price=document.createElement("div");
-    price.innerText=o.price.toLocaleString("no-NO")+" kr";
-    price.style.fontWeight="600";
-    price.style.fontSize="14px";
-    price.style.marginBottom="6px";
-    body.appendChild(price);
-
-    const title=document.createElement("div");
-    title.innerText=o.title;
-    title.style.fontSize="13px";
-    title.style.color="#333";
-    title.style.marginBottom="10px";
-    body.appendChild(title);
-
-    card.appendChild(body);
-
-    const actions=document.createElement("div");
-    actions.style.display="flex";
-    actions.style.gap="8px";
-    actions.style.padding="10px";
-    actions.style.borderTop="1px solid #eee";
-
-    const buyBtn=document.createElement("a");
-    buyBtn.innerText="Kjøp";
-    buyBtn.href=`sms:${SMS_NUMBER}?body=Hei! Jeg ønsker å kjøpe nummeret: ${encodeURIComponent(o.title)} (${o.price} kr)`;
-    buyBtn.style.flex="1";
-    buyBtn.style.textAlign="center";
-    buyBtn.style.padding="10px";
-    buyBtn.style.borderRadius="8px";
-    buyBtn.style.background="#111";
-    buyBtn.style.color="#fff";
-    buyBtn.style.textDecoration="none";
-    buyBtn.style.fontSize="13px";
-    buyBtn.style.fontWeight="600";
-
-    const bidBtn=document.createElement("a");
-    bidBtn.innerText="Gi bud";
-    bidBtn.href=`sms:${SMS_NUMBER}?body=Hei! Jeg vil gi bud på nummeret: ${encodeURIComponent(o.title)}. Mitt bud er ___ kr.`;
-    bidBtn.style.flex="1";
-    bidBtn.style.textAlign="center";
-    bidBtn.style.padding="10px";
-    bidBtn.style.borderRadius="8px";
-    bidBtn.style.background="#f0f0f0";
-    bidBtn.style.color="#111";
-    bidBtn.style.textDecoration="none";
-    bidBtn.style.fontSize="13px";
-    bidBtn.style.fontWeight="500";
-
-    actions.appendChild(buyBtn);
-    actions.appendChild(bidBtn);
-    card.appendChild(actions);
-
-    grid.appendChild(card);
+  const grid=document.getElementById("grid");
+  grid.innerHTML="";
+  [...DATA].sort((a,b)=>dir==="asc"?a.price-b.price:b.price-a.price).forEach(o=>{
+    const c=document.createElement("div");
+    c.style.background="#fff";c.style.borderRadius="14px";c.style.overflow="hidden";
+    if(o.img){const i=o.img.cloneNode(true);fixImage(i);c.appendChild(i);}
+    c.innerHTML+=`<div style="padding:10px">
+      <div style="font-weight:600">${o.price.toLocaleString("no-NO")} kr</div>
+      <div style="font-size:13px;margin:6px 0">${o.title}</div>
+    </div>
+    <div style="display:flex;gap:8px;padding:10px;border-top:1px solid #eee">
+      <a style="flex:1;background:#111;color:#fff;text-align:center;padding:8px;border-radius:8px;text-decoration:none"
+         href="sms:${SMS_NUMBER}?body=Hei! Jeg ønsker å kjøpe nummeret: ${encodeURIComponent(o.title)} (${o.price} kr)">Kjøp</a>
+      <a style="flex:1;background:#eee;color:#111;text-align:center;padding:8px;border-radius:8px;text-decoration:none"
+         href="sms:${SMS_NUMBER}?body=Hei! Jeg vil gi bud på nummeret: ${encodeURIComponent(o.title)}.">Gi bud</a>
+    </div>`;
+    grid.appendChild(c);
   });
 }
 
-document.getElementById("asc").onclick=()=>render("asc");
-document.getElementById("desc").onclick=()=>render("desc");
+asc.onclick=()=>render("asc");
+desc.onclick=()=>render("desc");
 </script>
 
 </body>
