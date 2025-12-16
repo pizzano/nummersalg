@@ -1,11 +1,142 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-  <meta charset="UTF-8">
-  <title>NummerSalg.no</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nummer Salg</title>
 </head>
-<body>
-  <h1>NummerSalg.no yayında 🚀</h1>
-  <p>VIP mobilnumre kjøp og salg</p>
+<body style="margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#f5f6f8;">
+
+<!-- HEADER -->
+<header style="background:#0b0b0b;color:#fff;padding:18px 14px;">
+  <h1 style="margin:0;font-size:22px;">Nummer Salg</h1>
+  <p style="margin:6px 0 0;font-size:13px;color:#cfcfcf;">
+    Norges nye markedsplass for eksklusive mobilnumre
+  </p>
+</header>
+
+<!-- INFO -->
+<section style="padding:14px;font-size:13px;color:#333;">
+  <p style="margin:0;">
+    Her finner du håndplukkede VIP- og gullnumre. Perfekt for bedrift,
+    merkevare eller privat bruk.
+  </p>
+</section>
+
+<!-- SORTERING -->
+<div style="padding:0 14px 10px;display:flex;gap:8px;flex-wrap:wrap;">
+  <button id="asc" style="padding:8px 12px;font-size:13px;border-radius:8px;border:1px solid #ccc;background:#fff;">
+    Pris: lav → høy
+  </button>
+  <button id="desc" style="padding:8px 12px;font-size:13px;border-radius:8px;border:1px solid #ccc;background:#fff;">
+    Pris: høy → lav
+  </button>
+</div>
+
+<!-- COUNT -->
+<div id="count" style="padding:0 14px 10px;font-size:13px;color:#555;"></div>
+
+<!-- GRID -->
+<div id="grid" style="
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+  gap:14px;
+  padding:0 14px 30px;
+"></div>
+
+<script>
+const FINN_URL =
+  "https://www.finn.no/recommerce/forsale/search?q=gullnummer+skarnes";
+const PROXY_URL =
+  "https://corsproxy.io/?" + encodeURIComponent(FINN_URL);
+
+let DATA = [];
+
+fetch(PROXY_URL)
+  .then(r => r.text())
+  .then(html => {
+    const doc = new DOMParser().parseFromString(html,"text/html");
+    const list = doc.querySelector(".sf-result-list");
+    if(!list) return;
+
+    DATA = Array.from(list.children).map(item => {
+      item.querySelectorAll(
+        ".text-xs.s-text-subtle.flex.justify-between"
+      ).forEach(e=>e.remove());
+
+      item.querySelectorAll("a").forEach(a=>{
+        a.removeAttribute("href");
+        a.style.pointerEvents="none";
+      });
+
+      const img = item.querySelector("img");
+      const title = item.querySelector("h2");
+      const priceSpan = item.querySelector("span");
+
+      let price = 0;
+      if(priceSpan){
+        price = parseInt(priceSpan.textContent.replace(/\D/g,""))||0;
+      }
+
+      return {img,title,price};
+    });
+
+    document.getElementById("count").innerText =
+      `Totalt ${DATA.length} annonser`;
+
+    render("asc");
+  });
+
+function render(dir){
+  const grid = document.getElementById("grid");
+  grid.innerHTML = "";
+
+  const sorted = [...DATA].sort((a,b)=>
+    dir==="asc"?a.price-b.price:b.price-a.price
+  );
+
+  sorted.forEach(o=>{
+    const card = document.createElement("div");
+    card.style.background="#fff";
+    card.style.borderRadius="14px";
+    card.style.overflow="hidden";
+    card.style.boxShadow="0 4px 12px rgba(0,0,0,.08)";
+
+    if(o.img){
+      const img=o.img.cloneNode(true);
+      img.style.width="100%";
+      img.style.height="200px";
+      img.style.objectFit="cover";
+      card.appendChild(img);
+    }
+
+    const body=document.createElement("div");
+    body.style.padding="10px";
+
+    const price=document.createElement("div");
+    price.innerText=o.price.toLocaleString("no-NO")+" kr";
+    price.style.fontWeight="600";
+    price.style.fontSize="14px";
+    price.style.color="#111";
+    price.style.marginBottom="6px";
+    body.appendChild(price);
+
+    if(o.title){
+      const t=o.title.cloneNode(true);
+      t.style.fontSize="13px";
+      t.style.fontWeight="400";
+      t.style.margin="0";
+      body.appendChild(t);
+    }
+
+    card.appendChild(body);
+    grid.appendChild(card);
+  });
+}
+
+document.getElementById("asc").onclick=()=>render("asc");
+document.getElementById("desc").onclick=()=>render("desc");
+</script>
+
 </body>
 </html>
