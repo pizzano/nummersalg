@@ -7,7 +7,6 @@
 </head>
 <body style="margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#f5f6f8;">
 
-<!-- HEADER -->
 <header style="background:#0b0b0b;color:#fff;padding:18px 14px;">
   <h1 style="margin:0;font-size:22px;">Nummer Salg</h1>
   <p style="margin:6px 0 0;font-size:13px;color:#cfcfcf;">
@@ -15,33 +14,22 @@
   </p>
 </header>
 
-<!-- INFO -->
 <section style="padding:14px;font-size:13px;color:#333;">
-  <p style="margin:0;">
-    Her finner du håndplukkede VIP- og gullnumre. Perfekt for bedrift,
-    merkevare eller privat bruk.
-  </p>
+  Håndplukkede VIP- og gullnumre for privatpersoner og bedrifter.
 </section>
 
-<!-- SORTERING -->
 <div style="padding:0 14px 10px;display:flex;gap:8px;flex-wrap:wrap;">
-  <button id="asc" style="padding:8px 12px;font-size:13px;border-radius:8px;border:1px solid #ccc;background:#fff;">
-    Pris: lav → høy
-  </button>
-  <button id="desc" style="padding:8px 12px;font-size:13px;border-radius:8px;border:1px solid #ccc;background:#fff;">
-    Pris: høy → lav
-  </button>
+  <button id="asc">Pris: lav → høy</button>
+  <button id="desc">Pris: høy → lav</button>
 </div>
 
-<!-- COUNT -->
 <div id="count" style="padding:0 14px 10px;font-size:13px;color:#555;"></div>
 
-<!-- GRID -->
 <div id="grid" style="
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
   gap:14px;
-  padding:0 14px 30px;
+  padding:0 14px 40px;
 "></div>
 
 <script>
@@ -50,6 +38,7 @@ const FINN_URL =
 const PROXY_URL =
   "https://corsproxy.io/?" + encodeURIComponent(FINN_URL);
 
+const SMS_NUMBER = "95557474";
 let DATA = [];
 
 fetch(PROXY_URL)
@@ -70,7 +59,8 @@ fetch(PROXY_URL)
       });
 
       const img = item.querySelector("img");
-      const title = item.querySelector("h2");
+      const titleEl = item.querySelector("h2");
+      const title = titleEl ? titleEl.innerText.trim() : "";
       const priceSpan = item.querySelector("span");
 
       let price = 0;
@@ -101,6 +91,8 @@ function render(dir){
     card.style.borderRadius="14px";
     card.style.overflow="hidden";
     card.style.boxShadow="0 4px 12px rgba(0,0,0,.08)";
+    card.style.display="flex";
+    card.style.flexDirection="column";
 
     if(o.img){
       const img=o.img.cloneNode(true);
@@ -112,24 +104,60 @@ function render(dir){
 
     const body=document.createElement("div");
     body.style.padding="10px";
+    body.style.flex="1";
 
     const price=document.createElement("div");
     price.innerText=o.price.toLocaleString("no-NO")+" kr";
     price.style.fontWeight="600";
     price.style.fontSize="14px";
-    price.style.color="#111";
     price.style.marginBottom="6px";
     body.appendChild(price);
 
-    if(o.title){
-      const t=o.title.cloneNode(true);
-      t.style.fontSize="13px";
-      t.style.fontWeight="400";
-      t.style.margin="0";
-      body.appendChild(t);
-    }
+    const title=document.createElement("div");
+    title.innerText=o.title;
+    title.style.fontSize="13px";
+    title.style.color="#333";
+    title.style.marginBottom="10px";
+    body.appendChild(title);
 
     card.appendChild(body);
+
+    const actions=document.createElement("div");
+    actions.style.display="flex";
+    actions.style.gap="8px";
+    actions.style.padding="10px";
+    actions.style.borderTop="1px solid #eee";
+
+    const buyBtn=document.createElement("a");
+    buyBtn.innerText="Kjøp";
+    buyBtn.href=`sms:${SMS_NUMBER}?body=Hei! Jeg ønsker å kjøpe nummeret: ${encodeURIComponent(o.title)} (${o.price} kr)`;
+    buyBtn.style.flex="1";
+    buyBtn.style.textAlign="center";
+    buyBtn.style.padding="10px";
+    buyBtn.style.borderRadius="8px";
+    buyBtn.style.background="#111";
+    buyBtn.style.color="#fff";
+    buyBtn.style.textDecoration="none";
+    buyBtn.style.fontSize="13px";
+    buyBtn.style.fontWeight="600";
+
+    const bidBtn=document.createElement("a");
+    bidBtn.innerText="Gi bud";
+    bidBtn.href=`sms:${SMS_NUMBER}?body=Hei! Jeg vil gi bud på nummeret: ${encodeURIComponent(o.title)}. Mitt bud er ___ kr.`;
+    bidBtn.style.flex="1";
+    bidBtn.style.textAlign="center";
+    bidBtn.style.padding="10px";
+    bidBtn.style.borderRadius="8px";
+    bidBtn.style.background="#f0f0f0";
+    bidBtn.style.color="#111";
+    bidBtn.style.textDecoration="none";
+    bidBtn.style.fontSize="13px";
+    bidBtn.style.fontWeight="500";
+
+    actions.appendChild(buyBtn);
+    actions.appendChild(bidBtn);
+    card.appendChild(actions);
+
     grid.appendChild(card);
   });
 }
