@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nummer Salg</title>
 </head>
+
 <body style="margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#f5f6f8;">
 
 <header style="background:#0b0b0b;color:#fff;padding:18px 14px;">
@@ -33,13 +34,20 @@
 "></div>
 
 <script>
-const FINN_URL =
-  "https://www.finn.no/recommerce/forsale/search?location=1.22034.20068&location=1.20003.20057&sub_category=1.91.3106";
+const FINN_URL =  "https://www.finn.no/recommerce/forsale/search?location=1.22034.20068&location=1.20003.20057&sub_category=1.91.3106";
 const PROXY_URL =
   "https://corsproxy.io/?" + encodeURIComponent(FINN_URL);
 
 const SMS_NUMBER = "95557474";
 let DATA = [];
+
+function fixImage(img){
+  img.style.width = "100%";
+  img.style.height = "auto";
+  img.style.objectFit = "unset";
+  img.removeAttribute("height");
+  img.style.display = "block";
+}
 
 fetch(PROXY_URL)
   .then(r => r.text())
@@ -49,6 +57,7 @@ fetch(PROXY_URL)
     if(!list) return;
 
     DATA = Array.from(list.children).map(item => {
+
       item.querySelectorAll(
         ".text-xs.s-text-subtle.flex.justify-between"
       ).forEach(e=>e.remove());
@@ -65,10 +74,10 @@ fetch(PROXY_URL)
 
       let price = 0;
       if(priceSpan){
-        price = parseInt(priceSpan.textContent.replace(/\D/g,""))||0;
+        price = parseInt(priceSpan.textContent.replace(/\D/g,"")) || 0;
       }
 
-      return {img,title,price};
+      return { img, title, price };
     });
 
     document.getElementById("count").innerText =
@@ -96,9 +105,7 @@ function render(dir){
 
     if(o.img){
       const img=o.img.cloneNode(true);
-      img.style.width="100%";
-      img.style.height="200px";
-      img.style.objectFit="cover";
+      fixImage(img);
       card.appendChild(img);
     }
 
