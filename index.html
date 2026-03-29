@@ -1,206 +1,182 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nummer Salg – Eksklusive mobilnumre i Norge</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description" content="Nummer Salg er Norges nye markedsplass for kjøp og salg av eksklusive VIP- og gullnumre. Finn et mobilnummer som er lett å huske – for privat eller bedrift.">
-  <meta name="keywords" content="gullnummer, vip nummer, mobilnummer salg, eksklusive telefonnummer, nummer salg norge">
-  <meta name="author" content="Nummer Salg">
+<title>Nummer Salg – Eksklusive mobilnumre i Norge</title>
 
-  <meta property="og:title" content="Nummer Salg – Eksklusive mobilnumre">
-  <meta property="og:description" content="Kjøp unike og lett huskbare mobilnumre. VIP- og gullnumre for privatpersoner og bedrifter.">
-  <meta property="og:type" content="website">
+<meta name="description" content="Nummer Salg er Norges nye markedsplass for kjøp og salg av eksklusive VIP- og gullnumre. Finn et mobilnummer som er lett å huske – for privat eller bedrift.">
+<meta name="keywords" content="gullnummer, vip nummer, mobilnummer salg, eksklusive telefonnummer, nummer salg norge">
+<meta name="author" content="Nummer Salg">
+
+<meta property="og:title" content="Nummer Salg – Eksklusive mobilnumre">
+<meta property="og:description" content="Kjøp unike og lett huskbare mobilnumre. VIP- og gullnumre for privatpersoner og bedrifter.">
+<meta property="og:type" content="website">
 </head>
 
 <body style="margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#f5f6f8;">
 
-  <a href="#innhold" style="position:absolute;left:-9999px;">Hopp til innhold</a>
+<a href="#innhold" style="position:absolute;left:-9999px;">Hopp til innhold</a>
 
-  <header style="background:#0b0b0b;color:#fff;padding:20px 16px;">
-    <h1 style="margin:0;font-size:22px;">Nummer Salg</h1>
-    <p style="margin:6px 0 0;font-size:13px;color:#cfcfcf;">
-      Norges nye markedsplass for eksklusive mobilnumre
-    </p>
-  </header>
+<header style="background:#0b0b0b;color:#fff;padding:20px 16px;">
+  <h1 style="margin:0;font-size:22px;">Nummer Salg</h1>
+  <p style="margin:6px 0 0;font-size:13px;color:#cfcfcf;">
+    Norges nye markedsplass for eksklusive mobilnumre
+  </p>
+</header>
 
-  <section style="padding:16px;font-size:13px;color:#333;">
-    VIP- og gullnumre for privatpersoner og bedrifter.
-  </section>
+<section style="padding:16px;font-size:13px;color:#333;">
+  VIP- og gullnumre for privatpersoner og bedrifter.
+</section>
 
-  <div style="padding:0 16px 10px;display:flex;gap:8px;flex-wrap:wrap;">
-    <button id="asc">Pris: lav → høy</button>
-    <button id="desc">Pris: høy → lav</button>
-  </div>
+<div style="padding:0 16px 10px;display:flex;gap:8px;flex-wrap:wrap;">
+  <button id="asc">Pris: lav → høy</button>
+  <button id="desc">Pris: høy → lav</button>
+</div>
 
-  <div id="count" style="padding:0 16px 10px;font-size:13px;color:#555;"></div>
-  <div id="status" style="padding:0 16px 10px;font-size:13px;color:#a00;"></div>
+<div id="count" style="padding:0 16px 10px;font-size:13px;color:#555;"></div>
+<div id="status" style="padding:0 16px 10px;font-size:13px;color:#a00;"></div>
 
-  <div id="innhold"></div>
+<div id="innhold"></div>
+<div id="grid" style="
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+  gap:14px;
+  padding:0 16px 40px;
+"></div>
 
-  <div id="grid" style="
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
-    gap:14px;
-    padding:0 16px 40px;
-  "></div>
+<section style="background:#fff;padding:24px 16px;font-size:13px;line-height:1.6;">
+  <h2>Om oss</h2>
+  <p>
+    Nummer Salg er en uavhengig plattform for kjøp og salg av eksklusive mobilnumre.
+    Vi tror at et telefonnummer kan være mer enn bare tall – det kan være identitet,
+    profesjonalitet og et varig inntrykk.
+  </p>
 
-  <section style="background:#fff;padding:24px 16px;font-size:13px;line-height:1.6;">
-    <h2>Om oss</h2>
-    <p>
-      Nummer Salg er en uavhengig plattform for kjøp og salg av eksklusive mobilnumre.
-      Vi tror at et telefonnummer kan være mer enn bare tall – det kan være identitet,
-      profesjonalitet og et varig inntrykk.
-    </p>
+  <h3>Vår visjon</h3>
+  <p>
+    Vi ønsker å gjøre markedet for gullnumre mer tilgjengelig, oversiktlig og trygt.
+    Et eksklusivt nummer skal være like enkelt å handle som et domenenavn.
+  </p>
 
-    <h3>Vår visjon</h3>
-    <p>
-      Vi ønsker å gjøre markedet for gullnumre mer tilgjengelig, oversiktlig og trygt.
-      Et eksklusivt nummer skal være like enkelt å handle som et domenenavn.
-    </p>
+  <h3>Hvorfor gullnummer?</h3>
+  <ul>
+    <li>✔ Enkle å huske</li>
+    <li>✔ Profesjonelt uttrykk for bedrifter</li>
+    <li>✔ Personlig preg</li>
+    <li>✔ Kan ha langsiktig verdi</li>
+  </ul>
+</section>
 
-    <h3>Hvorfor gullnummer?</h3>
-    <ul>
-      <li>✔ Enkle å huske</li>
-      <li>✔ Profesjonelt uttrykk for bedrifter</li>
-      <li>✔ Personlig preg</li>
-      <li>✔ Kan ha langsiktig verdi</li>
-    </ul>
-  </section>
+<section style="padding:24px 16px;font-size:13px;background:#f0f1f3;">
+  <h2>Kontakt oss</h2>
+  <p>
+    Har du spørsmål, ønsker å kjøpe et nummer eller vil gi bud?
+  </p>
+  <p>
+    📧 E-post: <strong>xhitaf@gmail.com</strong><br>
+    📱 SMS / telefon: <strong>466 77 660</strong>
+  </p>
+</section>
 
-  <section style="padding:24px 16px;font-size:13px;background:#f0f1f3;">
-    <h2>Kontakt oss</h2>
-    <p>
-      Har du spørsmål, ønsker å kjøpe et nummer eller vil gi bud?
-    </p>
-    <p>
-      📧 E-post: <strong>xhitaf@gmail.com</strong><br>
-      📱 SMS / telefon: <strong>466 77 660</strong>
-    </p>
-  </section>
+<footer style="background:#0b0b0b;color:#ccc;padding:20px 16px;font-size:12px;">
+  <p style="margin:0 0 6px;">
+    © 2025 Nummer Salg – Alle rettigheter reservert
+  </p>
+  <p style="margin:0;">
+    Uavhengig markedsplass for mobilnumre i Norge
+  </p>
+</footer>
 
-  <footer style="background:#0b0b0b;color:#ccc;padding:20px 16px;font-size:12px;">
-    <p style="margin:0 0 6px;">
-      © 2025 Nummer Salg – Alle rettigheter reservert
-    </p>
-    <p style="margin:0;">
-      Uavhengig markedsplass for mobilnumre i Norge
-    </p>
-  </footer>
+<script>
+const FINN_URL =
+  "https://www.finn.no/recommerce/forsale/search?location=1.22034.20068&location=1.20003.20057&sub_category=1.91.3106";
+const PROXY_URL =
+  "https://api.codetabs.com/v1/proxy?quest=" + encodeURIComponent(FINN_URL);
 
-  <script>
-    const FINN_URL = "https://www.finn.no/recommerce/forsale/search?location=1.22034.20068&location=1.20003.20057&sub_category=1.91.3106";
-    const PROXY_URL = "https://api.allorigins.win/raw?url=" + encodeURIComponent(FINN_URL);
+const SMS_NUMBER = "95557474";
+let DATA = [];
 
-    const SMS_NUMBER = "95557474";
-    let DATA = [];
+function fixImage(img){
+  img.style.width = "100%";
+  img.style.height = "auto";
+  img.style.objectFit = "unset";
+  img.removeAttribute("height");
+  img.removeAttribute("width");
+}
 
-    function fixImage(img) {
-      img.style.width = "100%";
-      img.style.height = "auto";
-      img.style.objectFit = "cover";
-      img.removeAttribute("height");
-      img.removeAttribute("width");
-      img.loading = "lazy";
-    }
+fetch(PROXY_URL)
+.then(r => {
+  if (!r.ok) throw new Error("HTTP " + r.status);
+  return r.text();
+})
+.then(html => {
+  const doc = new DOMParser().parseFromString(html, "text/html");
+  const list = doc.querySelector(".sf-result-list");
 
-    function render(dir) {
-      const grid = document.getElementById("grid");
-      grid.innerHTML = "";
+  if (!list) {
+    document.getElementById("status").innerText = "Fant ikke annonselisten.";
+    return;
+  }
 
-      const sorted = [...DATA].sort((a, b) => {
-        return dir === "asc" ? a.price - b.price : b.price - a.price;
-      });
+  DATA = [...list.children].map(item => {
+    item.querySelectorAll(".text-xs.s-text-subtle.flex.justify-between").forEach(e => e.remove());
+    item.querySelectorAll("a").forEach(a => {
+      a.removeAttribute("href");
+      a.style.pointerEvents = "none";
+    });
 
-      sorted.forEach(o => {
-        const c = document.createElement("div");
-        c.style.background = "#fff";
-        c.style.borderRadius = "14px";
-        c.style.overflow = "hidden";
-        c.style.boxShadow = "0 2px 10px rgba(0,0,0,0.06)";
+    const img = item.querySelector("img");
+    const title = item.querySelector("h2")?.innerText || "";
+    const price = parseInt((item.querySelector("span")?.innerText || "").replace(/\D/g, "")) || 0;
 
-        if (o.img) {
-          const i = o.img.cloneNode(true);
-          fixImage(i);
-          c.appendChild(i);
-        }
+    return { img, title, price };
+  }).filter(x => x.title);
 
-        c.innerHTML += `
-          <div style="padding:10px">
-            <div style="font-weight:600">${o.price.toLocaleString("no-NO")} kr</div>
-            <div style="font-size:13px;margin:6px 0;line-height:1.4">${o.title}</div>
-          </div>
-          <div style="display:flex;gap:8px;padding:10px;border-top:1px solid #eee">
-            <a
-              style="flex:1;background:#111;color:#fff;text-align:center;padding:8px;border-radius:8px;text-decoration:none"
-              href="sms:${SMS_NUMBER}?body=${encodeURIComponent("Hei! Jeg ønsker å kjøpe nummeret: " + o.title + " (" + o.price + " kr)")}"
-            >Kjøp</a>
-            <a
-              style="flex:1;background:#eee;color:#111;text-align:center;padding:8px;border-radius:8px;text-decoration:none"
-              href="sms:${SMS_NUMBER}?body=${encodeURIComponent("Hei! Jeg vil gi bud på nummeret: " + o.title + ".")}"
-            >Gi bud</a>
-          </div>
-        `;
+  document.getElementById("count").innerText = `Totalt ${DATA.length} annonser`;
+  render("asc");
+})
+.catch(err => {
+  document.getElementById("status").innerText = "Feil: " + err.message;
+});
 
-        grid.appendChild(c);
-      });
-    }
+function render(dir){
+  const grid = document.getElementById("grid");
+  grid.innerHTML = "";
 
-    async function loadFinnAds() {
-      const status = document.getElementById("status");
-      const count = document.getElementById("count");
+  [...DATA]
+    .sort((a, b) => dir === "asc" ? a.price - b.price : b.price - a.price)
+    .forEach(o => {
+      const c = document.createElement("div");
+      c.style.background = "#fff";
+      c.style.borderRadius = "14px";
+      c.style.overflow = "hidden";
 
-      status.innerText = "Laster annonser...";
-
-      try {
-        const response = await fetch(PROXY_URL);
-
-        if (!response.ok) {
-          throw new Error("HTTP " + response.status);
-        }
-
-        const html = await response.text();
-        const doc = new DOMParser().parseFromString(html, "text/html");
-
-        const list = doc.querySelector(".sf-search-adresult, .sf-result-list, [data-testid='search-results']");
-        if (!list) {
-          throw new Error("Fant ikke annonselisten i HTML-en.");
-        }
-
-        const items = [...list.children];
-
-        DATA = items.map(item => {
-          const img = item.querySelector("img");
-          const title =
-            item.querySelector("h2")?.innerText?.trim() ||
-            item.querySelector("a")?.innerText?.trim() ||
-            "";
-
-          const text = item.innerText || "";
-          const priceMatch = text.match(/(\d[\d\s.]*)\s*kr/i);
-          const price = priceMatch
-            ? parseInt(priceMatch[1].replace(/[^\d]/g, ""), 10) || 0
-            : 0;
-
-          return { img, title, price };
-        }).filter(x => x.title);
-
-        count.innerText = `Totalt ${DATA.length} annonser`;
-        status.innerText = "";
-
-        render("asc");
-      } catch (err) {
-        status.innerText = "Feil: " + err.message;
-        console.error(err);
+      if (o.img) {
+        const i = o.img.cloneNode(true);
+        fixImage(i);
+        c.appendChild(i);
       }
-    }
 
-    document.getElementById("asc").addEventListener("click", () => render("asc"));
-    document.getElementById("desc").addEventListener("click", () => render("desc"));
+      c.innerHTML += `<div style="padding:10px">
+        <div style="font-weight:600">${o.price.toLocaleString("no-NO")} kr</div>
+        <div style="font-size:13px;margin:6px 0">${o.title}</div>
+      </div>
+      <div style="display:flex;gap:8px;padding:10px;border-top:1px solid #eee">
+        <a style="flex:1;background:#111;color:#fff;text-align:center;padding:8px;border-radius:8px;text-decoration:none"
+           href="sms:${SMS_NUMBER}?body=${encodeURIComponent("Hei! Jeg ønsker å kjøpe nummeret: " + o.title + " (" + o.price + " kr)")}">Kjøp</a>
+        <a style="flex:1;background:#eee;color:#111;text-align:center;padding:8px;border-radius:8px;text-decoration:none"
+           href="sms:${SMS_NUMBER}?body=${encodeURIComponent("Hei! Jeg vil gi bud på nummeret: " + o.title + ".")}">Gi bud</a>
+      </div>`;
 
-    loadFinnAds();
-  </script>
+      grid.appendChild(c);
+    });
+}
+
+document.getElementById("asc").onclick = () => render("asc");
+document.getElementById("desc").onclick = () => render("desc");
+</script>
 
 </body>
 </html>
