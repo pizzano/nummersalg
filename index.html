@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Gullnummer og VIP mobilnummer til salgs | FINN.no annonser</title>
+  <title>Gullnummer og VIP mobilnummer til salgs | Nummersalg.no</title>
 
-  <meta name="description" content="Eksklusive gullnummer, VIP mobilnummer og enkle telefonnummer til salgs. Se tilgjengelige nummer og åpne annonsene direkte på FINN.no." />
-  <meta name="keywords" content="gullnummer, VIP mobilnummer, mobilnummer til salgs, telefonnummer til salgs, eksklusivt mobilnummer, lett nummer, huskevennlig nummer, norsk mobilnummer, FINN.no gullnummer" />
+  <meta name="description" content="Gullnummer, VIP mobilnummer og eksklusive telefonnummer til salgs. Se tilgjengelige nummer og åpne annonsen direkte på FINN.no." />
+  <meta name="keywords" content="gullnummer, vip mobilnummer, mobilnummer til salgs, telefonnummer til salgs, nummersalg, eksklusivt nummer, lett mobilnummer, huskevennlig nummer, finn gullnummer" />
 
   <style>
     :root {
@@ -17,10 +17,10 @@
       --muted: #6b7280;
       --line: #e5e7eb;
       --gold: #d8aa36;
-      --gold-soft: #fff4cc;
-      --black: #080808;
-      --shadow: 0 4px 16px rgba(0,0,0,.08);
-      --radius: 12px;
+      --gold-soft: #fff5cf;
+      --black: #070707;
+      --shadow: 0 3px 12px rgba(0,0,0,.08);
+      --radius: 13px;
     }
 
     * {
@@ -40,10 +40,10 @@
 
     .hero {
       background:
-        radial-gradient(circle at top left, rgba(216,170,54,.22), transparent 34%),
-        linear-gradient(135deg, #050505 0%, #151515 60%, #241d08 100%);
+        radial-gradient(circle at top left, rgba(216,170,54,.22), transparent 32%),
+        linear-gradient(135deg, #050505 0%, #151515 62%, #211b08 100%);
       color: #fff;
-      padding: 22px 16px 20px;
+      padding: 16px 14px 18px;
     }
 
     .hero-inner {
@@ -54,9 +54,9 @@
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 9px;
-      margin-bottom: 12px;
-      font-size: 12px;
+      gap: 8px;
+      margin-bottom: 9px;
+      font-size: 11px;
       font-weight: 900;
       letter-spacing: .14em;
       text-transform: uppercase;
@@ -64,30 +64,29 @@
     }
 
     .brand-logo {
-      width: 30px;
-      height: 30px;
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       background: linear-gradient(145deg, #ffe08a, #b8860b);
       color: #111;
-      font-size: 16px;
-      box-shadow: 0 0 22px rgba(216,170,54,.4);
+      font-size: 15px;
+      box-shadow: 0 0 18px rgba(216,170,54,.35);
     }
 
-    .hero-row {
+    .hero-title-row {
       display: flex;
       justify-content: space-between;
       align-items: end;
-      gap: 18px;
-      flex-wrap: wrap;
+      gap: 14px;
     }
 
     .hero h1 {
       margin: 0;
       max-width: 760px;
-      font-size: clamp(28px, 4vw, 46px);
+      font-size: clamp(27px, 4.5vw, 46px);
       line-height: 1.02;
       letter-spacing: -.045em;
     }
@@ -96,48 +95,36 @@
       color: var(--gold);
     }
 
-    .hero-actions {
+    .hero-mini {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
-    .hero-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 42px;
-      padding: 0 16px;
+    .mini-pill {
+      padding: 8px 11px;
       border-radius: 999px;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 900;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.07);
+      color: #e5e7eb;
+      font-size: 12px;
+      font-weight: 800;
       white-space: nowrap;
-    }
-
-    .hero-btn.primary {
-      background: var(--gold);
-      color: #111;
-    }
-
-    .hero-btn.secondary {
-      border: 1px solid rgba(255,255,255,.22);
-      color: #fff;
-      background: rgba(255,255,255,.06);
     }
 
     .page {
       max-width: 1180px;
       margin: 0 auto;
-      padding: 18px 16px 42px;
+      padding: 14px 14px 36px;
     }
 
-    .topbar {
-      display: flex;
-      justify-content: space-between;
+    .listing-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
       align-items: center;
-      gap: 14px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .result-count {
@@ -163,47 +150,90 @@
     }
 
     .sort-select {
-      height: 44px;
-      padding: 0 36px 0 14px;
-      border: 1px solid #bfc5cf;
+      height: 40px;
+      max-width: 175px;
+      padding: 0 34px 0 12px;
+      border: 1px solid #c9ced6;
       background: #fff;
-      border-radius: 8px;
-      font-size: 15px;
+      border-radius: 9px;
+      font-size: 14px;
       color: #374151;
       cursor: pointer;
     }
 
-    .control-row {
-      display: flex;
-      gap: 12px;
+    .filter-details {
       margin-bottom: 10px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 1px 5px rgba(0,0,0,.04);
+    }
+
+    .filter-details summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 11px 13px;
+      font-size: 14px;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #111827;
+    }
+
+    .filter-details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .filter-details summary::after {
+      content: "+";
+      width: 23px;
+      height: 23px;
+      border-radius: 50%;
+      background: var(--gold-soft);
+      color: #6b4b00;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+    }
+
+    .filter-details[open] summary::after {
+      content: "−";
+    }
+
+    .filter-content {
+      padding: 0 12px 12px;
+      display: grid;
+      gap: 9px;
     }
 
     .search {
-      flex: 1;
-      height: 44px;
+      width: 100%;
+      height: 42px;
       border: 1px solid var(--line);
       border-radius: 10px;
-      padding: 0 14px;
-      font-size: 15px;
+      padding: 0 13px;
+      font-size: 14px;
       outline: none;
       background: #fff;
     }
 
     .search:focus {
       border-color: #8ab4ff;
-      box-shadow: 0 0 0 3px rgba(0,99,251,.12);
+      box-shadow: 0 0 0 3px rgba(0,99,251,.10);
     }
 
     .refresh-btn {
-      height: 44px;
+      height: 42px;
       border: 0;
       border-radius: 10px;
-      padding: 0 16px;
+      padding: 0 15px;
       background: var(--black);
       color: #fff;
-      font-size: 15px;
-      font-weight: 800;
+      font-size: 14px;
+      font-weight: 900;
       cursor: pointer;
       white-space: nowrap;
     }
@@ -215,14 +245,14 @@
 
     #status {
       color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 14px;
+      font-size: 13px;
+      margin: 0 0 10px;
     }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
+      gap: 16px;
     }
 
     .finn-card {
@@ -238,16 +268,16 @@
     }
 
     .finn-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 26px rgba(0,0,0,.14);
-      border-color: rgba(216,170,54,.75);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(0,0,0,.13);
+      border-color: rgba(216,170,54,.7);
     }
 
     .image-box {
       position: relative;
       background: #050505;
       width: 100%;
-      aspect-ratio: 1 / 1;
+      aspect-ratio: 1 / .92;
       overflow: hidden;
       display: flex;
       align-items: center;
@@ -262,6 +292,19 @@
       background: #050505;
     }
 
+    .badge-finn {
+      position: absolute;
+      left: 9px;
+      top: 9px;
+      padding: 5px 8px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.72);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 900;
+      backdrop-filter: blur(8px);
+    }
+
     .no-image {
       width: 100%;
       height: 100%;
@@ -271,43 +314,30 @@
       background: linear-gradient(145deg, #050505, #1a1a1a);
       color: #d4af37;
       text-align: center;
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 900;
       letter-spacing: 2px;
     }
 
-    .badge-finn {
-      position: absolute;
-      left: 10px;
-      top: 10px;
-      padding: 6px 9px;
-      border-radius: 999px;
-      background: rgba(0,0,0,.68);
-      color: #fff;
-      font-size: 12px;
-      font-weight: 900;
-      backdrop-filter: blur(8px);
-    }
-
     .body {
-      padding: 13px 13px 14px;
+      padding: 11px 12px 12px;
       background: #fff;
     }
 
     .price {
-      font-size: 20px;
+      font-size: 19px;
       font-weight: 900;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       color: #111827;
       letter-spacing: -.02em;
     }
 
     .title {
-      font-size: 15px;
-      line-height: 1.34;
+      font-size: 14px;
+      line-height: 1.3;
       color: #1f2937;
-      min-height: 42px;
-      margin-bottom: 12px;
+      min-height: 37px;
+      margin-bottom: 10px;
       word-break: break-word;
     }
 
@@ -317,8 +347,7 @@
       justify-content: space-between;
       gap: 8px;
       color: #6b7280;
-      font-size: 13px;
-      margin-bottom: 12px;
+      font-size: 12px;
     }
 
     .location {
@@ -332,40 +361,40 @@
     }
 
     .buy-line {
+      margin-top: 10px;
+      border-top: 1px solid var(--line);
+      padding-top: 9px;
+      color: #111;
+      font-size: 12px;
+      font-weight: 900;
       display: flex;
-      align-items: center;
       justify-content: space-between;
       gap: 8px;
-      border-top: 1px solid var(--line);
-      padding-top: 11px;
-      color: #111;
-      font-size: 13px;
-      font-weight: 900;
     }
 
     .buy-line span:last-child {
-      color: var(--gold);
+      color: #a87900;
       white-space: nowrap;
     }
 
     .details-area {
-      margin-top: 24px;
+      margin-top: 20px;
       display: grid;
-      gap: 10px;
+      gap: 9px;
     }
 
     details.info-box {
       background: #fff;
       border: 1px solid var(--line);
-      border-radius: 14px;
+      border-radius: 13px;
       box-shadow: 0 2px 10px rgba(0,0,0,.04);
       overflow: hidden;
     }
 
     details.info-box summary {
       cursor: pointer;
-      padding: 16px 18px;
-      font-size: 17px;
+      padding: 14px 15px;
+      font-size: 15px;
       font-weight: 900;
       list-style: none;
       display: flex;
@@ -380,8 +409,8 @@
 
     details.info-box summary::after {
       content: "+";
-      width: 26px;
-      height: 26px;
+      width: 24px;
+      height: 24px;
       border-radius: 50%;
       background: var(--gold-soft);
       color: #6b4b00;
@@ -397,44 +426,27 @@
     }
 
     .info-content {
-      padding: 0 18px 18px;
+      padding: 0 15px 15px;
       color: #374151;
-      line-height: 1.6;
-      font-size: 15px;
-    }
-
-    .keyword-row {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-top: 14px;
-    }
-
-    .keyword {
-      padding: 7px 10px;
-      border-radius: 999px;
-      background: var(--gold-soft);
-      border: 1px solid #f2d888;
-      color: #6b4b00;
-      font-size: 13px;
-      font-weight: 800;
+      line-height: 1.55;
+      font-size: 14px;
     }
 
     .steps {
       display: grid;
-      gap: 10px;
+      gap: 9px;
     }
 
     .step {
       display: grid;
-      grid-template-columns: 28px 1fr;
-      gap: 10px;
+      grid-template-columns: 27px 1fr;
+      gap: 9px;
       align-items: start;
     }
 
     .step-number {
-      width: 28px;
-      height: 28px;
+      width: 27px;
+      height: 27px;
       border-radius: 50%;
       display: inline-flex;
       align-items: center;
@@ -442,7 +454,24 @@
       background: var(--gold);
       color: #111;
       font-weight: 900;
-      font-size: 13px;
+      font-size: 12px;
+    }
+
+    .keyword-row {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .keyword {
+      padding: 6px 9px;
+      border-radius: 999px;
+      background: var(--gold-soft);
+      border: 1px solid #f2d888;
+      color: #6b4b00;
+      font-size: 12px;
+      font-weight: 800;
     }
 
     .empty {
@@ -450,7 +479,7 @@
       background: #fff;
       border: 1px dashed #cbd5e1;
       border-radius: 12px;
-      padding: 38px 18px;
+      padding: 32px 16px;
       text-align: center;
       color: var(--muted);
     }
@@ -458,12 +487,12 @@
     .empty strong {
       display: block;
       color: var(--text);
-      font-size: 18px;
+      font-size: 17px;
       margin-bottom: 6px;
     }
 
     .skeleton {
-      height: 390px;
+      height: 330px;
       border-radius: 12px;
       background: linear-gradient(90deg, #e5e7eb 25%, #f3f4f6 38%, #e5e7eb 63%);
       background-size: 300% 100%;
@@ -476,10 +505,10 @@
     }
 
     .footer {
-      padding: 26px 18px;
+      padding: 22px 14px;
       text-align: center;
       color: #6b7280;
-      font-size: 13px;
+      font-size: 12px;
     }
 
     @media (max-width: 900px) {
@@ -490,81 +519,116 @@
 
     @media (max-width: 560px) {
       .hero {
-        padding: 18px 12px 16px;
+        padding: 15px 13px 16px;
       }
 
-      .hero h1 {
-        font-size: 30px;
+      .brand {
+        margin-bottom: 8px;
+        font-size: 10px;
       }
 
-      .hero-row {
-        align-items: flex-start;
-      }
-
-      .hero-actions {
-        width: 100%;
-      }
-
-      .hero-btn {
-        flex: 1;
-        min-width: 145px;
-      }
-
-      .page {
-        padding: 14px 12px 34px;
-      }
-
-      .topbar {
-        align-items: flex-start;
-      }
-
-      .result-count {
-        font-size: 15px;
-      }
-
-      .sort-select {
-        height: 42px;
+      .brand-logo {
+        width: 26px;
+        height: 26px;
         font-size: 14px;
       }
 
-      .control-row {
-        flex-direction: column;
+      .hero-title-row {
+        display: block;
       }
 
-      .refresh-btn {
-        width: 100%;
+      .hero h1 {
+        font-size: 29px;
+        max-width: 390px;
+      }
+
+      .hero-mini {
+        justify-content: flex-start;
+        margin-top: 11px;
+      }
+
+      .mini-pill {
+        font-size: 11px;
+        padding: 7px 9px;
+      }
+
+      .page {
+        padding: 12px 12px 32px;
+      }
+
+      .listing-head {
+        grid-template-columns: 1fr auto;
+        margin-bottom: 9px;
+      }
+
+      .result-count {
+        font-size: 16px;
+      }
+
+      .sort-select {
+        height: 38px;
+        width: 155px;
+        font-size: 13px;
+        border-radius: 9px;
+      }
+
+      #status {
+        font-size: 12px;
+        margin-bottom: 9px;
       }
 
       .grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
+        gap: 10px;
+      }
+
+      .image-box {
+        aspect-ratio: 1 / .90;
+      }
+
+      .badge-finn {
+        left: 7px;
+        top: 7px;
+        padding: 4px 7px;
+        font-size: 10px;
       }
 
       .body {
-        padding: 10px;
+        padding: 9px 10px 10px;
       }
 
       .price {
         font-size: 16px;
+        margin-bottom: 5px;
       }
 
       .title {
-        font-size: 13px;
-        min-height: 38px;
+        font-size: 12.5px;
+        min-height: 34px;
+        margin-bottom: 8px;
       }
 
       .meta {
-        font-size: 12px;
+        font-size: 11px;
       }
 
       .buy-line {
-        font-size: 12px;
-        display: block;
+        display: none;
       }
 
-      .buy-line span:last-child {
-        display: block;
-        margin-top: 4px;
+      .filter-details summary {
+        padding: 10px 12px;
+        font-size: 13px;
+      }
+
+      .search,
+      .refresh-btn {
+        height: 40px;
+        font-size: 13px;
+      }
+
+      .skeleton {
+        height: 270px;
       }
     }
   </style>
@@ -578,19 +642,19 @@
         Gullnummer Norge
       </div>
 
-      <div class="hero-row">
+      <div class="hero-title-row">
         <h1><span>Gullnummer</span> og VIP mobilnummer</h1>
 
-        <div class="hero-actions">
-          <a class="hero-btn primary" href="#annonser">Se nummer</a>
-          <a class="hero-btn secondary" href="#info">Info</a>
+        <div class="hero-mini">
+          <span class="mini-pill">Trygg kontakt via FINN.no</span>
+          <span class="mini-pill">Klikk på nummeret</span>
         </div>
       </div>
     </div>
   </header>
 
   <main id="annonser" class="page">
-    <div class="topbar">
+    <div class="listing-head">
       <div class="result-count">
         <span id="countText">0 treff</span>
         <span class="info-icon">i</span>
@@ -603,10 +667,13 @@
       </select>
     </div>
 
-    <div class="control-row">
-      <input id="searchInput" class="search" type="search" placeholder="Søk etter nummer, pris" />
-      <button id="refreshBtn" class="refresh-btn">Oppdater annonser</button>
-    </div>
+    <details class="filter-details">
+      <summary>Søk og oppdater</summary>
+      <div class="filter-content">
+        <input id="searchInput" class="search" type="search" placeholder="Søk etter nummer, pris eller sted..." />
+        <button id="refreshBtn" class="refresh-btn">Oppdater annonser</button>
+      </div>
+    </details>
 
     <div id="status">Annonsene lastes inn...</div>
     <div id="resultGrid" class="grid"></div>
@@ -645,7 +712,7 @@
           <p>
             Et gullnummer er et mobilnummer med et spesielt mønster, for eksempel gjentatte tall,
             speilvendte tall eller en enkel tallkombinasjon. Slike nummer er populære fordi de er
-            lettere å huske og kan gi et mer profesjonelt inntrykk.
+            lette å huske.
           </p>
 
           <div class="keyword-row">
@@ -653,8 +720,8 @@
             <span class="keyword">VIP mobilnummer</span>
             <span class="keyword">Mobilnummer til salgs</span>
             <span class="keyword">Telefonnummer til salgs</span>
+            <span class="keyword">Nummersalg</span>
             <span class="keyword">Eksklusivt nummer</span>
-            <span class="keyword">Huskevennlig nummer</span>
             <span class="keyword">FINN.no</span>
           </div>
         </div>
@@ -696,8 +763,6 @@
       countText.innerText = "0 treff";
 
       grid.innerHTML = `
-        <div class="skeleton"></div>
-        <div class="skeleton"></div>
         <div class="skeleton"></div>
         <div class="skeleton"></div>
         <div class="skeleton"></div>
@@ -834,8 +899,8 @@
             </div>
 
             <div class="buy-line">
-              <span>Kjøp / kontakt via FINN</span>
-              <span>Åpne annonse →</span>
+              <span>Kjøp via FINN</span>
+              <span>Åpne →</span>
             </div>
           </div>
         </a>
