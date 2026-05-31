@@ -1,182 +1,883 @@
 <!DOCTYPE html>
-<html lang="no">
+<html lang="nb">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Nummer Salg – Eksklusive mobilnumre i Norge</title>
+  <title>Gullnummer og VIP mobilnummer til salgs | FINN.no annonser</title>
 
-<meta name="description" content="Nummer Salg er Norges nye markedsplass for kjøp og salg av eksklusive VIP- og gullnumre. Finn et mobilnummer som er lett å huske – for privat eller bedrift.">
-<meta name="keywords" content="gullnummer, vip nummer, mobilnummer salg, eksklusive telefonnummer, nummer salg norge">
-<meta name="author" content="Nummer Salg">
+  <meta name="description" content="Eksklusive gullnummer, VIP mobilnummer og enkle telefonnummer til salgs. Se tilgjengelige nummer og åpne annonsene direkte på FINN.no." />
+  <meta name="keywords" content="gullnummer, VIP mobilnummer, mobilnummer til salgs, telefonnummer til salgs, eksklusivt mobilnummer, lett nummer, huskevennlig nummer, norsk mobilnummer, FINN.no gullnummer" />
 
-<meta property="og:title" content="Nummer Salg – Eksklusive mobilnumre">
-<meta property="og:description" content="Kjøp unike og lett huskbare mobilnumre. VIP- og gullnumre for privatpersoner og bedrifter.">
-<meta property="og:type" content="website">
-</head>
+  <style>
+    :root {
+      --bg: #f4f4f2;
+      --card: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --gold: #d8aa36;
+      --gold-soft: #fff4cc;
+      --black: #080808;
+      --shadow: 0 4px 16px rgba(0,0,0,.08);
+      --radius: 12px;
+    }
 
-<body style="margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#f5f6f8;">
+    * {
+      box-sizing: border-box;
+    }
 
-<a href="#innhold" style="position:absolute;left:-9999px;">Hopp til innhold</a>
+    html {
+      scroll-behavior: smooth;
+    }
 
-<header style="background:#0b0b0b;color:#fff;padding:20px 16px;">
-  <h1 style="margin:0;font-size:22px;">Nummer Salg</h1>
-  <p style="margin:6px 0 0;font-size:13px;color:#cfcfcf;">
-    Norges nye markedsplass for eksklusive mobilnumre
-  </p>
-</header>
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-<section style="padding:16px;font-size:13px;color:#333;">
-  VIP- og gullnumre for privatpersoner og bedrifter.
-</section>
+    .hero {
+      background:
+        radial-gradient(circle at top left, rgba(216,170,54,.22), transparent 34%),
+        linear-gradient(135deg, #050505 0%, #151515 60%, #241d08 100%);
+      color: #fff;
+      padding: 22px 16px 20px;
+    }
 
-<div style="padding:0 16px 10px;display:flex;gap:8px;flex-wrap:wrap;">
-  <button id="asc">Pris: lav → høy</button>
-  <button id="desc">Pris: høy → lav</button>
-</div>
+    .hero-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
 
-<div id="count" style="padding:0 16px 10px;font-size:13px;color:#555;"></div>
-<div id="status" style="padding:0 16px 10px;font-size:13px;color:#a00;"></div>
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 12px;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
 
-<div id="innhold"></div>
-<div id="grid" style="
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
-  gap:14px;
-  padding:0 16px 40px;
-"></div>
+    .brand-logo {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(145deg, #ffe08a, #b8860b);
+      color: #111;
+      font-size: 16px;
+      box-shadow: 0 0 22px rgba(216,170,54,.4);
+    }
 
-<section style="background:#fff;padding:24px 16px;font-size:13px;line-height:1.6;">
-  <h2>Om oss</h2>
-  <p>
-    Nummer Salg er en uavhengig plattform for kjøp og salg av eksklusive mobilnumre.
-    Vi tror at et telefonnummer kan være mer enn bare tall – det kan være identitet,
-    profesjonalitet og et varig inntrykk.
-  </p>
+    .hero-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
 
-  <h3>Vår visjon</h3>
-  <p>
-    Vi ønsker å gjøre markedet for gullnumre mer tilgjengelig, oversiktlig og trygt.
-    Et eksklusivt nummer skal være like enkelt å handle som et domenenavn.
-  </p>
+    .hero h1 {
+      margin: 0;
+      max-width: 760px;
+      font-size: clamp(28px, 4vw, 46px);
+      line-height: 1.02;
+      letter-spacing: -.045em;
+    }
 
-  <h3>Hvorfor gullnummer?</h3>
-  <ul>
-    <li>✔ Enkle å huske</li>
-    <li>✔ Profesjonelt uttrykk for bedrifter</li>
-    <li>✔ Personlig preg</li>
-    <li>✔ Kan ha langsiktig verdi</li>
-  </ul>
-</section>
+    .hero h1 span {
+      color: var(--gold);
+    }
 
-<section style="padding:24px 16px;font-size:13px;background:#f0f1f3;">
-  <h2>Kontakt oss</h2>
-  <p>
-    Har du spørsmål, ønsker å kjøpe et nummer eller vil gi bud?
-  </p>
-  <p>
-    📧 E-post: <strong>xhitaf@gmail.com</strong><br>
-    📱 SMS / telefon: <strong>466 77 660</strong>
-  </p>
-</section>
+    .hero-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
 
-<footer style="background:#0b0b0b;color:#ccc;padding:20px 16px;font-size:12px;">
-  <p style="margin:0 0 6px;">
-    © 2025 Nummer Salg – Alle rettigheter reservert
-  </p>
-  <p style="margin:0;">
-    Uavhengig markedsplass for mobilnumre i Norge
-  </p>
-</footer>
+    .hero-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 16px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
 
-<script>
-const FINN_URL =
-  "https://www.finn.no/recommerce/forsale/search?location=1.22034.20068&location=1.20003.20057&sub_category=1.91.3106";
-const PROXY_URL =
-  "https://api.codetabs.com/v1/proxy?quest=" + encodeURIComponent(FINN_URL);
+    .hero-btn.primary {
+      background: var(--gold);
+      color: #111;
+    }
 
-const SMS_NUMBER = "95557474";
-let DATA = [];
+    .hero-btn.secondary {
+      border: 1px solid rgba(255,255,255,.22);
+      color: #fff;
+      background: rgba(255,255,255,.06);
+    }
 
-function fixImage(img){
-  img.style.width = "100%";
-  img.style.height = "auto";
-  img.style.objectFit = "unset";
-  img.removeAttribute("height");
-  img.removeAttribute("width");
-}
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 18px 16px 42px;
+    }
 
-fetch(PROXY_URL)
-.then(r => {
-  if (!r.ok) throw new Error("HTTP " + r.status);
-  return r.text();
-})
-.then(html => {
-  const doc = new DOMParser().parseFromString(html, "text/html");
-  const list = doc.querySelector(".sf-result-list");
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
 
-  if (!list) {
-    document.getElementById("status").innerText = "Fant ikke annonselisten.";
-    return;
-  }
+    .result-count {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 18px;
+      font-weight: 900;
+    }
 
-  DATA = [...list.children].map(item => {
-    item.querySelectorAll(".text-xs.s-text-subtle.flex.justify-between").forEach(e => e.remove());
-    item.querySelectorAll("a").forEach(a => {
-      a.removeAttribute("href");
-      a.style.pointerEvents = "none";
-    });
+    .info-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 1px solid #9ca3af;
+      color: #2563eb;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 900;
+      background: #fff;
+    }
 
-    const img = item.querySelector("img");
-    const title = item.querySelector("h2")?.innerText || "";
-    const price = parseInt((item.querySelector("span")?.innerText || "").replace(/\D/g, "")) || 0;
+    .sort-select {
+      height: 44px;
+      padding: 0 36px 0 14px;
+      border: 1px solid #bfc5cf;
+      background: #fff;
+      border-radius: 8px;
+      font-size: 15px;
+      color: #374151;
+      cursor: pointer;
+    }
 
-    return { img, title, price };
-  }).filter(x => x.title);
+    .control-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
 
-  document.getElementById("count").innerText = `Totalt ${DATA.length} annonser`;
-  render("asc");
-})
-.catch(err => {
-  document.getElementById("status").innerText = "Feil: " + err.message;
-});
+    .search {
+      flex: 1;
+      height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 0 14px;
+      font-size: 15px;
+      outline: none;
+      background: #fff;
+    }
 
-function render(dir){
-  const grid = document.getElementById("grid");
-  grid.innerHTML = "";
+    .search:focus {
+      border-color: #8ab4ff;
+      box-shadow: 0 0 0 3px rgba(0,99,251,.12);
+    }
 
-  [...DATA]
-    .sort((a, b) => dir === "asc" ? a.price - b.price : b.price - a.price)
-    .forEach(o => {
-      const c = document.createElement("div");
-      c.style.background = "#fff";
-      c.style.borderRadius = "14px";
-      c.style.overflow = "hidden";
+    .refresh-btn {
+      height: 44px;
+      border: 0;
+      border-radius: 10px;
+      padding: 0 16px;
+      background: var(--black);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      white-space: nowrap;
+    }
 
-      if (o.img) {
-        const i = o.img.cloneNode(true);
-        fixImage(i);
-        c.appendChild(i);
+    .refresh-btn:disabled {
+      opacity: .65;
+      cursor: not-allowed;
+    }
+
+    #status {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .finn-card {
+      display: block;
+      background: var(--card);
+      border-radius: var(--radius);
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(0,0,0,.07);
+      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+    }
+
+    .finn-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 26px rgba(0,0,0,.14);
+      border-color: rgba(216,170,54,.75);
+    }
+
+    .image-box {
+      position: relative;
+      background: #050505;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      background: #050505;
+    }
+
+    .no-image {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(145deg, #050505, #1a1a1a);
+      color: #d4af37;
+      text-align: center;
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+
+    .badge-finn {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      padding: 6px 9px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.68);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 900;
+      backdrop-filter: blur(8px);
+    }
+
+    .body {
+      padding: 13px 13px 14px;
+      background: #fff;
+    }
+
+    .price {
+      font-size: 20px;
+      font-weight: 900;
+      margin-bottom: 8px;
+      color: #111827;
+      letter-spacing: -.02em;
+    }
+
+    .title {
+      font-size: 15px;
+      line-height: 1.34;
+      color: #1f2937;
+      min-height: 42px;
+      margin-bottom: 12px;
+      word-break: break-word;
+    }
+
+    .meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      color: #6b7280;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .location {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .date {
+      white-space: nowrap;
+    }
+
+    .buy-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      border-top: 1px solid var(--line);
+      padding-top: 11px;
+      color: #111;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .buy-line span:last-child {
+      color: var(--gold);
+      white-space: nowrap;
+    }
+
+    .details-area {
+      margin-top: 24px;
+      display: grid;
+      gap: 10px;
+    }
+
+    details.info-box {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: 0 2px 10px rgba(0,0,0,.04);
+      overflow: hidden;
+    }
+
+    details.info-box summary {
+      cursor: pointer;
+      padding: 16px 18px;
+      font-size: 17px;
+      font-weight: 900;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    details.info-box summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.info-box summary::after {
+      content: "+";
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--gold-soft);
+      color: #6b4b00;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      flex: 0 0 auto;
+    }
+
+    details.info-box[open] summary::after {
+      content: "−";
+    }
+
+    .info-content {
+      padding: 0 18px 18px;
+      color: #374151;
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    .keyword-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .keyword {
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: var(--gold-soft);
+      border: 1px solid #f2d888;
+      color: #6b4b00;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .steps {
+      display: grid;
+      gap: 10px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .step-number {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--gold);
+      color: #111;
+      font-weight: 900;
+      font-size: 13px;
+    }
+
+    .empty {
+      grid-column: 1 / -1;
+      background: #fff;
+      border: 1px dashed #cbd5e1;
+      border-radius: 12px;
+      padding: 38px 18px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .empty strong {
+      display: block;
+      color: var(--text);
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .skeleton {
+      height: 390px;
+      border-radius: 12px;
+      background: linear-gradient(90deg, #e5e7eb 25%, #f3f4f6 38%, #e5e7eb 63%);
+      background-size: 300% 100%;
+      animation: shine 1.2s infinite;
+    }
+
+    @keyframes shine {
+      0% { background-position: 100% 0; }
+      100% { background-position: -100% 0; }
+    }
+
+    .footer {
+      padding: 26px 18px;
+      text-align: center;
+      color: #6b7280;
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero {
+        padding: 18px 12px 16px;
       }
 
-      c.innerHTML += `<div style="padding:10px">
-        <div style="font-weight:600">${o.price.toLocaleString("no-NO")} kr</div>
-        <div style="font-size:13px;margin:6px 0">${o.title}</div>
+      .hero h1 {
+        font-size: 30px;
+      }
+
+      .hero-row {
+        align-items: flex-start;
+      }
+
+      .hero-actions {
+        width: 100%;
+      }
+
+      .hero-btn {
+        flex: 1;
+        min-width: 145px;
+      }
+
+      .page {
+        padding: 14px 12px 34px;
+      }
+
+      .topbar {
+        align-items: flex-start;
+      }
+
+      .result-count {
+        font-size: 15px;
+      }
+
+      .sort-select {
+        height: 42px;
+        font-size: 14px;
+      }
+
+      .control-row {
+        flex-direction: column;
+      }
+
+      .refresh-btn {
+        width: 100%;
+      }
+
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .body {
+        padding: 10px;
+      }
+
+      .price {
+        font-size: 16px;
+      }
+
+      .title {
+        font-size: 13px;
+        min-height: 38px;
+      }
+
+      .meta {
+        font-size: 12px;
+      }
+
+      .buy-line {
+        font-size: 12px;
+        display: block;
+      }
+
+      .buy-line span:last-child {
+        display: block;
+        margin-top: 4px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="brand">
+        <span class="brand-logo">♛</span>
+        Gullnummer Norge
       </div>
-      <div style="display:flex;gap:8px;padding:10px;border-top:1px solid #eee">
-        <a style="flex:1;background:#111;color:#fff;text-align:center;padding:8px;border-radius:8px;text-decoration:none"
-           href="sms:${SMS_NUMBER}?body=${encodeURIComponent("Hei! Jeg ønsker å kjøpe nummeret: " + o.title + " (" + o.price + " kr)")}">Kjøp</a>
-        <a style="flex:1;background:#eee;color:#111;text-align:center;padding:8px;border-radius:8px;text-decoration:none"
-           href="sms:${SMS_NUMBER}?body=${encodeURIComponent("Hei! Jeg vil gi bud på nummeret: " + o.title + ".")}">Gi bud</a>
-      </div>`;
 
-      grid.appendChild(c);
-    });
-}
+      <div class="hero-row">
+        <h1><span>Gullnummer</span> og VIP mobilnummer</h1>
 
-document.getElementById("asc").onclick = () => render("asc");
-document.getElementById("desc").onclick = () => render("desc");
-</script>
+        <div class="hero-actions">
+          <a class="hero-btn primary" href="#annonser">Se nummer</a>
+          <a class="hero-btn secondary" href="#info">Info</a>
+        </div>
+      </div>
+    </div>
+  </header>
 
+  <main id="annonser" class="page">
+    <div class="topbar">
+      <div class="result-count">
+        <span id="countText">0 treff</span>
+        <span class="info-icon">i</span>
+      </div>
+
+      <select id="sortSelect" class="sort-select">
+        <option value="relevant">Mest relevant</option>
+        <option value="priceLow">Laveste pris</option>
+        <option value="priceHigh">Høyeste pris</option>
+      </select>
+    </div>
+
+    <div class="control-row">
+      <input id="searchInput" class="search" type="search" placeholder="Søk etter nummer, pris" />
+      <button id="refreshBtn" class="refresh-btn">Oppdater annonser</button>
+    </div>
+
+    <div id="status">Annonsene lastes inn...</div>
+    <div id="resultGrid" class="grid"></div>
+
+    <section id="info" class="details-area">
+      <details class="info-box">
+        <summary>Slik kjøper du</summary>
+        <div class="info-content">
+          <div class="steps">
+            <div class="step">
+              <span class="step-number">1</span>
+              <span>Velg ønsket gullnummer fra listen.</span>
+            </div>
+
+            <div class="step">
+              <span class="step-number">2</span>
+              <span>Trykk på bildet eller annonsen.</span>
+            </div>
+
+            <div class="step">
+              <span class="step-number">3</span>
+              <span>Du blir sendt direkte til FINN.no, hvor du kan sende melding.</span>
+            </div>
+
+            <div class="step">
+              <span class="step-number">4</span>
+              <span>Eierskifte og eventuell portering avtales etter kjøp.</span>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="info-box">
+        <summary>Hva er et gullnummer?</summary>
+        <div class="info-content">
+          <p>
+            Et gullnummer er et mobilnummer med et spesielt mønster, for eksempel gjentatte tall,
+            speilvendte tall eller en enkel tallkombinasjon. Slike nummer er populære fordi de er
+            lettere å huske og kan gi et mer profesjonelt inntrykk.
+          </p>
+
+          <div class="keyword-row">
+            <span class="keyword">Gullnummer</span>
+            <span class="keyword">VIP mobilnummer</span>
+            <span class="keyword">Mobilnummer til salgs</span>
+            <span class="keyword">Telefonnummer til salgs</span>
+            <span class="keyword">Eksklusivt nummer</span>
+            <span class="keyword">Huskevennlig nummer</span>
+            <span class="keyword">FINN.no</span>
+          </div>
+        </div>
+      </details>
+
+      <details class="info-box">
+        <summary>Om annonsene</summary>
+        <div class="info-content">
+          <p>
+            Annonsene hentes fra FINN.no. Pris, tilgjengelighet og detaljer kan endres i selve
+            FINN-annonsen. Klikk på et nummer for å åpne annonsen direkte på FINN.no.
+          </p>
+        </div>
+      </details>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Annonsene åpnes på FINN.no. Pris og tilgjengelighet kan endres.
+  </footer>
+
+  <script>
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxkq176PLFeNf4mFyylRn8qBl9fg5JlRIlwvsWnDI5FYpOBWSMKihJSzFrXf4-c2UgaeA/exec";
+
+    const countText = document.getElementById("countText");
+    const statusEl = document.getElementById("status");
+    const grid = document.getElementById("resultGrid");
+    const refreshBtn = document.getElementById("refreshBtn");
+    const searchInput = document.getElementById("searchInput");
+    const sortSelect = document.getElementById("sortSelect");
+
+    let allItems = [];
+    let totalTreff = 0;
+
+    function loadFinn() {
+      refreshBtn.disabled = true;
+      refreshBtn.innerText = "Laster...";
+      statusEl.innerText = "Henter annonser fra FINN.no...";
+      countText.innerText = "0 treff";
+
+      grid.innerHTML = `
+        <div class="skeleton"></div>
+        <div class="skeleton"></div>
+        <div class="skeleton"></div>
+        <div class="skeleton"></div>
+        <div class="skeleton"></div>
+        <div class="skeleton"></div>
+      `;
+
+      const callbackName = "finnCallback_" + Date.now();
+
+      window[callbackName] = function(data) {
+        try {
+          if (!data || !data.ok) {
+            throw new Error(data && data.error ? data.error : "Kunne ikke hente annonser");
+          }
+
+          allItems = Array.isArray(data.items) ? data.items : [];
+          totalTreff = data.total || allItems.length;
+
+          statusEl.innerText = "Sist oppdatert: " + (data.fetchedAt || "");
+          renderItems();
+
+        } catch (err) {
+          console.error(err);
+          statusEl.innerText = "Feil: " + err.message;
+
+          grid.innerHTML = `
+            <div class="empty">
+              <strong>Annonsene kunne ikke lastes inn</strong>
+              Kontroller Apps Script-lenken eller prøv igjen senere.
+            </div>
+          `;
+        } finally {
+          refreshBtn.disabled = false;
+          refreshBtn.innerText = "Oppdater annonser";
+
+          const oldScript = document.getElementById(callbackName);
+          if (oldScript) oldScript.remove();
+
+          delete window[callbackName];
+        }
+      };
+
+      const script = document.createElement("script");
+      script.id = callbackName;
+      script.src = APPS_SCRIPT_URL +
+        "?callback=" + encodeURIComponent(callbackName) +
+        "&t=" + Date.now();
+
+      script.onerror = function() {
+        statusEl.innerText = "Kunne ikke kontakte Apps Script.";
+
+        grid.innerHTML = `
+          <div class="empty">
+            <strong>Tilkoblingsfeil</strong>
+            Kontroller at Apps Script URL er riktig.
+          </div>
+        `;
+
+        refreshBtn.disabled = false;
+        refreshBtn.innerText = "Oppdater annonser";
+        delete window[callbackName];
+      };
+
+      document.body.appendChild(script);
+    }
+
+    function renderItems() {
+      const query = searchInput.value.trim().toLowerCase();
+      const sortType = sortSelect.value;
+
+      let items = allItems.slice();
+
+      if (query) {
+        items = items.filter(item => {
+          const text = [
+            item.title,
+            item.price,
+            item.location,
+            item.date
+          ].join(" ").toLowerCase();
+
+          return text.includes(query);
+        });
+      }
+
+      if (sortType === "priceLow") {
+        items.sort((a, b) => parsePrice(a.price) - parsePrice(b.price));
+      }
+
+      if (sortType === "priceHigh") {
+        items.sort((a, b) => parsePrice(b.price) - parsePrice(a.price));
+      }
+
+      countText.innerText = (query ? items.length : totalTreff) + " treff";
+
+      if (!items.length) {
+        grid.innerHTML = `
+          <div class="empty">
+            <strong>Ingen annonser funnet</strong>
+            Prøv et annet søk eller oppdater listen.
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = items.map(item => createCardHtml(item)).join("");
+    }
+
+    function createCardHtml(item) {
+      const title = escapeHtml(item.title || "Gullnummer til salgs");
+      const price = escapeHtml(item.price || "Pris ikke oppgitt");
+      const location = escapeHtml(item.location || "Skarnes");
+      const date = escapeHtml(item.date || "");
+      const url = escapeAttr(item.url || "#");
+      const image = item.image ? escapeAttr(item.image) : "";
+
+      const imageHtml = image
+        ? `<img src="${image}" alt="${title}" loading="lazy" referrerpolicy="no-referrer" onerror="handleImageError(this)">`
+        : `<div class="no-image">GULLNUMMER</div>`;
+
+      return `
+        <a class="finn-card" href="${url}" target="_blank" rel="noopener noreferrer" title="Åpne annonsen på FINN.no">
+          <div class="image-box">
+            ${imageHtml}
+            <span class="badge-finn">FINN.no</span>
+          </div>
+
+          <div class="body">
+            <div class="price">${price}</div>
+            <div class="title">${title}</div>
+
+            <div class="meta">
+              <span class="location">${location}</span>
+              <span class="date">${date}</span>
+            </div>
+
+            <div class="buy-line">
+              <span>Kjøp / kontakt via FINN</span>
+              <span>Åpne annonse →</span>
+            </div>
+          </div>
+        </a>
+      `;
+    }
+
+    function handleImageError(img) {
+      const box = img.closest(".image-box");
+      if (!box) return;
+
+      img.remove();
+
+      if (!box.querySelector(".no-image")) {
+        box.insertAdjacentHTML("afterbegin", '<div class="no-image">GULLNUMMER</div>');
+      }
+    }
+
+    function parsePrice(priceText) {
+      if (!priceText) return 999999999;
+
+      const number = String(priceText).replace(/[^\d]/g, "");
+      return number ? Number(number) : 999999999;
+    }
+
+    function escapeHtml(value) {
+      return String(value || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function escapeAttr(value) {
+      return escapeHtml(value);
+    }
+
+    refreshBtn.addEventListener("click", loadFinn);
+    searchInput.addEventListener("input", renderItems);
+    sortSelect.addEventListener("change", renderItems);
+
+    loadFinn();
+  </script>
 </body>
 </html>
