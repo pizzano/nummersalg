@@ -6,21 +6,27 @@
 
   <title>Gullnummer og VIP mobilnummer til salgs | Nummersalg.no</title>
 
-  <meta name="description" content="Gullnummer, VIP mobilnummer og eksklusive telefonnummer til salgs. Se tilgjengelige nummer og åpne annonsen direkte på FINN.no." />
-  <meta name="keywords" content="gullnummer, vip mobilnummer, mobilnummer til salgs, telefonnummer til salgs, nummersalg, eksklusivt nummer, lett mobilnummer, huskevennlig nummer, finn gullnummer" />
+  <meta name="description" content="Gullnummer, VIP mobilnummer, eksklusive mobilnummer og telefonnummer til salgs. Se tilgjengelige nummer og åpne annonsene direkte på FINN.no." />
+
+  <meta name="keywords" content="gullnummer, gullnummer til salgs, VIP mobilnummer, VIP nummer, mobilnummer til salgs, telefonnummer til salgs, nummersalg, eksklusivt mobilnummer, eksklusivt telefonnummer, lett mobilnummer, enkelt mobilnummer, huskevennlig nummer, lett nummer å huske, norsk mobilnummer, spesialnummer, premium mobilnummer, privat mobilnummer, bedriftsnummer, FINN gullnummer, mobilnummer på FINN, kjøp mobilnummer, kjøp gullnummer, selge mobilnummer, nummeroverføring, eierskifte mobilnummer, portering mobilnummer" />
+
+  <meta property="og:title" content="Gullnummer og VIP mobilnummer til salgs" />
+  <meta property="og:description" content="Se eksklusive gullnummer og VIP mobilnummer. Klikk på ønsket nummer og åpne annonsen direkte på FINN.no." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nummersalg.no/" />
 
   <style>
     :root {
-      --bg: #f4f4f2;
+      --bg: #f3f3f1;
       --card: #ffffff;
       --text: #111827;
       --muted: #6b7280;
       --line: #e5e7eb;
       --gold: #d8aa36;
-      --gold-soft: #fff5cf;
+      --gold-soft: #fff4cc;
       --black: #070707;
-      --shadow: 0 3px 12px rgba(0,0,0,.08);
-      --radius: 13px;
+      --shadow: 0 4px 14px rgba(0,0,0,.08);
+      --radius: 15px;
     }
 
     * {
@@ -40,10 +46,11 @@
 
     .hero {
       background:
-        radial-gradient(circle at top left, rgba(216,170,54,.22), transparent 32%),
-        linear-gradient(135deg, #050505 0%, #151515 62%, #211b08 100%);
+        radial-gradient(circle at top left, rgba(216,170,54,.24), transparent 34%),
+        linear-gradient(135deg, #050505 0%, #141414 62%, #211b08 100%);
       color: #fff;
-      padding: 16px 14px 18px;
+      padding: 16px 14px 17px;
+      border-bottom: 1px solid rgba(216,170,54,.28);
     }
 
     .hero-inner {
@@ -64,45 +71,46 @@
     }
 
     .brand-logo {
-      width: 28px;
-      height: 28px;
+      width: 27px;
+      height: 27px;
       border-radius: 50%;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       background: linear-gradient(145deg, #ffe08a, #b8860b);
       color: #111;
-      font-size: 15px;
-      box-shadow: 0 0 18px rgba(216,170,54,.35);
+      font-size: 14px;
+      box-shadow: 0 0 20px rgba(216,170,54,.35);
     }
 
-    .hero-title-row {
+    .hero-row {
       display: flex;
       justify-content: space-between;
       align-items: end;
-      gap: 14px;
+      gap: 16px;
     }
 
     .hero h1 {
       margin: 0;
       max-width: 760px;
-      font-size: clamp(27px, 4.5vw, 46px);
-      line-height: 1.02;
-      letter-spacing: -.045em;
+      font-size: clamp(28px, 4.2vw, 48px);
+      line-height: 1.01;
+      letter-spacing: -.048em;
     }
 
-    .hero h1 span {
+    .hero h2 span {
       color: var(--gold);
     }
 
-    .hero-mini {
+    .hero-tags {
       display: flex;
       gap: 8px;
       flex-wrap: wrap;
       justify-content: flex-end;
+      max-width: 420px;
     }
 
-    .mini-pill {
+    .hero-tag {
       padding: 8px 11px;
       border-radius: 999px;
       border: 1px solid rgba(255,255,255,.16);
@@ -116,22 +124,22 @@
     .page {
       max-width: 1180px;
       margin: 0 auto;
-      padding: 14px 14px 36px;
+      padding: 12px 12px 34px;
     }
 
-    .listing-head {
+    .list-top {
       display: grid;
       grid-template-columns: 1fr auto;
-      gap: 10px;
       align-items: center;
+      gap: 10px;
       margin-bottom: 10px;
     }
 
     .result-count {
       display: flex;
       align-items: center;
-      gap: 8px;
-      font-size: 18px;
+      gap: 7px;
+      font-size: 17px;
       font-weight: 900;
     }
 
@@ -139,7 +147,7 @@
       width: 18px;
       height: 18px;
       border-radius: 50%;
-      border: 1px solid #9ca3af;
+      border: 1px solid #a4acb8;
       color: #2563eb;
       display: inline-flex;
       align-items: center;
@@ -151,96 +159,15 @@
 
     .sort-select {
       height: 40px;
-      max-width: 175px;
-      padding: 0 34px 0 12px;
+      max-width: 170px;
+      padding: 0 33px 0 12px;
       border: 1px solid #c9ced6;
       background: #fff;
-      border-radius: 9px;
+      border-radius: 10px;
       font-size: 14px;
       color: #374151;
       cursor: pointer;
-    }
-
-    .filter-details {
-      margin-bottom: 10px;
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 1px 5px rgba(0,0,0,.04);
-    }
-
-    .filter-details summary {
-      list-style: none;
-      cursor: pointer;
-      padding: 11px 13px;
-      font-size: 14px;
-      font-weight: 900;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      color: #111827;
-    }
-
-    .filter-details summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .filter-details summary::after {
-      content: "+";
-      width: 23px;
-      height: 23px;
-      border-radius: 50%;
-      background: var(--gold-soft);
-      color: #6b4b00;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 900;
-    }
-
-    .filter-details[open] summary::after {
-      content: "−";
-    }
-
-    .filter-content {
-      padding: 0 12px 12px;
-      display: grid;
-      gap: 9px;
-    }
-
-    .search {
-      width: 100%;
-      height: 42px;
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      padding: 0 13px;
-      font-size: 14px;
-      outline: none;
-      background: #fff;
-    }
-
-    .search:focus {
-      border-color: #8ab4ff;
-      box-shadow: 0 0 0 3px rgba(0,99,251,.10);
-    }
-
-    .refresh-btn {
-      height: 42px;
-      border: 0;
-      border-radius: 10px;
-      padding: 0 15px;
-      background: var(--black);
-      color: #fff;
-      font-size: 14px;
-      font-weight: 900;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-
-    .refresh-btn:disabled {
-      opacity: .65;
-      cursor: not-allowed;
+      box-shadow: 0 1px 4px rgba(0,0,0,.04);
     }
 
     #status {
@@ -264,20 +191,20 @@
       color: inherit;
       box-shadow: var(--shadow);
       border: 1px solid rgba(0,0,0,.07);
-      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+      transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
     }
 
     .finn-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 24px rgba(0,0,0,.13);
-      border-color: rgba(216,170,54,.7);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(0,0,0,.14);
+      border-color: rgba(216,170,54,.76);
     }
 
     .image-box {
       position: relative;
       background: #050505;
       width: 100%;
-      aspect-ratio: 1 / .92;
+      aspect-ratio: 1 / .91;
       overflow: hidden;
       display: flex;
       align-items: center;
@@ -320,14 +247,14 @@
     }
 
     .body {
-      padding: 11px 12px 12px;
+      padding: 10px 11px 11px;
       background: #fff;
     }
 
     .price {
-      font-size: 19px;
+      font-size: 18px;
       font-weight: 900;
-      margin-bottom: 6px;
+      margin-bottom: 5px;
       color: #111827;
       letter-spacing: -.02em;
     }
@@ -336,8 +263,8 @@
       font-size: 14px;
       line-height: 1.3;
       color: #1f2937;
-      min-height: 37px;
-      margin-bottom: 10px;
+      min-height: 36px;
+      margin-bottom: 8px;
       word-break: break-word;
     }
 
@@ -361,9 +288,9 @@
     }
 
     .buy-line {
-      margin-top: 10px;
+      margin-top: 9px;
       border-top: 1px solid var(--line);
-      padding-top: 9px;
+      padding-top: 8px;
       color: #111;
       font-size: 12px;
       font-weight: 900;
@@ -386,7 +313,7 @@
     details.info-box {
       background: #fff;
       border: 1px solid var(--line);
-      border-radius: 13px;
+      border-radius: 14px;
       box-shadow: 0 2px 10px rgba(0,0,0,.04);
       overflow: hidden;
     }
@@ -428,8 +355,15 @@
     .info-content {
       padding: 0 15px 15px;
       color: #374151;
-      line-height: 1.55;
+      line-height: 1.6;
       font-size: 14px;
+    }
+
+    .info-content h2,
+    .info-content h3 {
+      margin: 12px 0 8px;
+      color: #111827;
+      letter-spacing: -.02em;
     }
 
     .steps {
@@ -493,7 +427,7 @@
 
     .skeleton {
       height: 330px;
-      border-radius: 12px;
+      border-radius: 14px;
       background: linear-gradient(90deg, #e5e7eb 25%, #f3f4f6 38%, #e5e7eb 63%);
       background-size: 300% 100%;
       animation: shine 1.2s infinite;
@@ -519,7 +453,7 @@
 
     @media (max-width: 560px) {
       .hero {
-        padding: 15px 13px 16px;
+        padding: 14px 13px 15px;
       }
 
       .brand {
@@ -528,37 +462,36 @@
       }
 
       .brand-logo {
-        width: 26px;
-        height: 26px;
-        font-size: 14px;
+        width: 25px;
+        height: 25px;
+        font-size: 13px;
       }
 
-      .hero-title-row {
+      .hero-row {
         display: block;
       }
 
       .hero h1 {
-        font-size: 29px;
+        font-size: 28px;
         max-width: 390px;
       }
 
-      .hero-mini {
+      .hero-tags {
         justify-content: flex-start;
-        margin-top: 11px;
+        margin-top: 10px;
       }
 
-      .mini-pill {
+      .hero-tag {
         font-size: 11px;
         padding: 7px 9px;
       }
 
       .page {
-        padding: 12px 12px 32px;
+        padding: 11px 11px 32px;
       }
 
-      .listing-head {
-        grid-template-columns: 1fr auto;
-        margin-bottom: 9px;
+      .list-top {
+        margin-bottom: 8px;
       }
 
       .result-count {
@@ -566,15 +499,14 @@
       }
 
       .sort-select {
+        width: 150px;
         height: 38px;
-        width: 155px;
         font-size: 13px;
-        border-radius: 9px;
       }
 
       #status {
         font-size: 12px;
-        margin-bottom: 9px;
+        margin-bottom: 8px;
       }
 
       .grid {
@@ -583,7 +515,7 @@
       }
 
       .image-box {
-        aspect-ratio: 1 / .90;
+        aspect-ratio: 1 / .88;
       }
 
       .badge-finn {
@@ -594,18 +526,18 @@
       }
 
       .body {
-        padding: 9px 10px 10px;
+        padding: 8px 9px 9px;
       }
 
       .price {
         font-size: 16px;
-        margin-bottom: 5px;
+        margin-bottom: 4px;
       }
 
       .title {
         font-size: 12.5px;
-        min-height: 34px;
-        margin-bottom: 8px;
+        min-height: 33px;
+        margin-bottom: 7px;
       }
 
       .meta {
@@ -616,22 +548,71 @@
         display: none;
       }
 
-      .filter-details summary {
-        padding: 10px 12px;
-        font-size: 13px;
-      }
-
-      .search,
-      .refresh-btn {
-        height: 40px;
-        font-size: 13px;
-      }
-
       .skeleton {
-        height: 270px;
+        height: 250px;
+      }
+
+      details.info-box summary {
+        padding: 13px 14px;
+        font-size: 14px;
       }
     }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Nummersalg.no",
+    "url": "https://nummersalg.no/",
+    "description": "Gullnummer, VIP mobilnummer og eksklusive telefonnummer til salgs.",
+    "keywords": [
+      "gullnummer",
+      "VIP mobilnummer",
+      "mobilnummer til salgs",
+      "telefonnummer til salgs",
+      "nummersalg",
+      "eksklusivt mobilnummer",
+      "lett mobilnummer",
+      "huskevennlig nummer",
+      "kjøp gullnummer",
+      "kjøp mobilnummer"
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Hva er et gullnummer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Et gullnummer er et mobilnummer med et spesielt og lett gjenkjennelig tallmønster, for eksempel gjentatte tall, speilvendte tall eller en enkel kombinasjon som er lett å huske."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Hvordan kjøper jeg et VIP mobilnummer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Velg ønsket nummer, klikk på annonsen og send melding direkte via FINN.no. Eierskifte og eventuell portering avtales etter kjøp."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Kan gullnummer brukes til bedrift?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja, et gullnummer eller VIP mobilnummer kan være nyttig for bedrifter fordi nummeret er enklere å huske og kan gi et mer profesjonelt inntrykk."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
@@ -642,19 +623,19 @@
         Gullnummer Norge
       </div>
 
-      <div class="hero-title-row">
-        <h1><span>Gullnummer</span> og VIP mobilnummer</h1>
+      <div class="hero-row">
+        <h2><span>Gullnummer</span> og VIP mobilnummer</h2>
 
-        <div class="hero-mini">
-          <span class="mini-pill">Trygg kontakt via FINN.no</span>
-          <span class="mini-pill">Klikk på nummeret</span>
+        <div class="hero-tags">
+          <span class="hero-tag">Kontakt via FINN.no</span>
+          <span class="hero-tag">Enkle nummer å huske</span>
         </div>
       </div>
     </div>
   </header>
 
   <main id="annonser" class="page">
-    <div class="listing-head">
+    <div class="list-top">
       <div class="result-count">
         <span id="countText">0 treff</span>
         <span class="info-icon">i</span>
@@ -667,25 +648,16 @@
       </select>
     </div>
 
-    <details class="filter-details">
-      <summary>Søk og oppdater</summary>
-      <div class="filter-content">
-        <input id="searchInput" class="search" type="search" placeholder="Søk etter nummer, pris eller sted..." />
-        <button id="refreshBtn" class="refresh-btn">Oppdater annonser</button>
-      </div>
-    </details>
-
-    <div id="status">Annonsene lastes inn...</div>
     <div id="resultGrid" class="grid"></div>
 
     <section id="info" class="details-area">
       <details class="info-box">
-        <summary>Slik kjøper du</summary>
+        <summary>Slik kjøper du gullnummer</summary>
         <div class="info-content">
           <div class="steps">
             <div class="step">
               <span class="step-number">1</span>
-              <span>Velg ønsket gullnummer fra listen.</span>
+              <span>Velg ønsket gullnummer eller VIP mobilnummer fra listen.</span>
             </div>
 
             <div class="step">
@@ -695,35 +667,65 @@
 
             <div class="step">
               <span class="step-number">3</span>
-              <span>Du blir sendt direkte til FINN.no, hvor du kan sende melding.</span>
+              <span>Annonsen åpnes direkte på FINN.no, hvor du kan sende melding.</span>
             </div>
 
             <div class="step">
               <span class="step-number">4</span>
-              <span>Eierskifte og eventuell portering avtales etter kjøp.</span>
+              <span>Eierskifte og eventuell portering av mobilnummer avtales etter kjøp.</span>
             </div>
           </div>
         </div>
       </details>
 
       <details class="info-box">
-        <summary>Hva er et gullnummer?</summary>
+        <summary>Gullnummer, VIP nummer og mobilnummer til salgs</summary>
         <div class="info-content">
           <p>
-            Et gullnummer er et mobilnummer med et spesielt mønster, for eksempel gjentatte tall,
-            speilvendte tall eller en enkel tallkombinasjon. Slike nummer er populære fordi de er
-            lette å huske.
+            Her finner du gullnummer, VIP mobilnummer, eksklusive mobilnummer og telefonnummer til salgs.
+            Et lett mobilnummer kan være nyttig for både privatpersoner og bedrifter som ønsker et nummer
+            som er enkelt å huske.
+          </p>
+
+          <p>
+            Mange søker etter gullnummer, VIP nummer, mobilnummer til salgs, telefonnummer til salgs,
+            nummersalg, premium mobilnummer, lett nummer å huske, huskevennlig nummer, eksklusivt telefonnummer,
+            bedriftsnummer, privat mobilnummer og norsk mobilnummer.
           </p>
 
           <div class="keyword-row">
             <span class="keyword">Gullnummer</span>
             <span class="keyword">VIP mobilnummer</span>
+            <span class="keyword">VIP nummer</span>
             <span class="keyword">Mobilnummer til salgs</span>
             <span class="keyword">Telefonnummer til salgs</span>
             <span class="keyword">Nummersalg</span>
-            <span class="keyword">Eksklusivt nummer</span>
+            <span class="keyword">Eksklusivt mobilnummer</span>
+            <span class="keyword">Premium mobilnummer</span>
+            <span class="keyword">Lett mobilnummer</span>
+            <span class="keyword">Huskevennlig nummer</span>
+            <span class="keyword">Kjøp gullnummer</span>
             <span class="keyword">FINN.no</span>
           </div>
+        </div>
+      </details>
+
+      <details class="info-box">
+        <summary>Hvorfor velge et eksklusivt mobilnummer?</summary>
+        <div class="info-content">
+          <h2>Et nummer som er lett å huske</h2>
+          <p>
+            Et gullnummer har ofte gjentatte tall, speilnummer eller en tydelig tallkombinasjon.
+            Dette gjør nummeret enklere å huske, enklere å gi videre og mer synlig i annonser,
+            markedsføring, visittkort og kundekontakt.
+          </p>
+
+          <h3>Populært for bedrift og privat bruk</h3>
+          <p>
+            VIP mobilnummer og gullnummer brukes ofte av bedrifter, selgere, håndverkere,
+            transportfirma, restauranter, nettbutikker og privatpersoner som ønsker et mer spesielt
+            og minneverdig telefonnummer.
+          </p>
         </div>
       </details>
 
@@ -731,8 +733,8 @@
         <summary>Om annonsene</summary>
         <div class="info-content">
           <p>
-            Annonsene hentes fra FINN.no. Pris, tilgjengelighet og detaljer kan endres i selve
-            FINN-annonsen. Klikk på et nummer for å åpne annonsen direkte på FINN.no.
+            Annonsene hentes fra FINN.no. Pris, tilgjengelighet og detaljer kan endres i selve FINN-annonsen.
+            Klikk på ønsket nummer for å åpne annonsen og ta kontakt direkte via FINN.no.
           </p>
         </div>
       </details>
@@ -740,7 +742,7 @@
   </main>
 
   <footer class="footer">
-    Annonsene åpnes på FINN.no. Pris og tilgjengelighet kan endres.
+    Nummersalg.no viser gullnummer og VIP mobilnummer. Annonsene åpnes på FINN.no.
   </footer>
 
   <script>
@@ -749,17 +751,13 @@
     const countText = document.getElementById("countText");
     const statusEl = document.getElementById("status");
     const grid = document.getElementById("resultGrid");
-    const refreshBtn = document.getElementById("refreshBtn");
-    const searchInput = document.getElementById("searchInput");
     const sortSelect = document.getElementById("sortSelect");
 
     let allItems = [];
     let totalTreff = 0;
 
     function loadFinn() {
-      refreshBtn.disabled = true;
-      refreshBtn.innerText = "Laster...";
-      statusEl.innerText = "Henter annonser fra FINN.no...";
+
       countText.innerText = "0 treff";
 
       grid.innerHTML = `
@@ -780,8 +778,7 @@
           allItems = Array.isArray(data.items) ? data.items : [];
           totalTreff = data.total || allItems.length;
 
-          statusEl.innerText = "Sist oppdatert: " + (data.fetchedAt || "");
-          renderItems();
+             renderItems();
 
         } catch (err) {
           console.error(err);
@@ -790,13 +787,10 @@
           grid.innerHTML = `
             <div class="empty">
               <strong>Annonsene kunne ikke lastes inn</strong>
-              Kontroller Apps Script-lenken eller prøv igjen senere.
+              Prøv igjen senere.
             </div>
           `;
         } finally {
-          refreshBtn.disabled = false;
-          refreshBtn.innerText = "Oppdater annonser";
-
           const oldScript = document.getElementById(callbackName);
           if (oldScript) oldScript.remove();
 
@@ -816,12 +810,10 @@
         grid.innerHTML = `
           <div class="empty">
             <strong>Tilkoblingsfeil</strong>
-            Kontroller at Apps Script URL er riktig.
+            Kontroller Apps Script URL.
           </div>
         `;
 
-        refreshBtn.disabled = false;
-        refreshBtn.innerText = "Oppdater annonser";
         delete window[callbackName];
       };
 
@@ -829,23 +821,8 @@
     }
 
     function renderItems() {
-      const query = searchInput.value.trim().toLowerCase();
       const sortType = sortSelect.value;
-
       let items = allItems.slice();
-
-      if (query) {
-        items = items.filter(item => {
-          const text = [
-            item.title,
-            item.price,
-            item.location,
-            item.date
-          ].join(" ").toLowerCase();
-
-          return text.includes(query);
-        });
-      }
 
       if (sortType === "priceLow") {
         items.sort((a, b) => parsePrice(a.price) - parsePrice(b.price));
@@ -855,13 +832,13 @@
         items.sort((a, b) => parsePrice(b.price) - parsePrice(a.price));
       }
 
-      countText.innerText = (query ? items.length : totalTreff) + " treff";
+      countText.innerText = totalTreff + " treff";
 
       if (!items.length) {
         grid.innerHTML = `
           <div class="empty">
             <strong>Ingen annonser funnet</strong>
-            Prøv et annet søk eller oppdater listen.
+            Prøv igjen senere.
           </div>
         `;
         return;
@@ -938,8 +915,6 @@
       return escapeHtml(value);
     }
 
-    refreshBtn.addEventListener("click", loadFinn);
-    searchInput.addEventListener("input", renderItems);
     sortSelect.addEventListener("change", renderItems);
 
     loadFinn();
