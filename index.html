@@ -98,7 +98,7 @@
       letter-spacing: -.048em;
     }
 
-    .hero h2 span {
+    .hero h1 span {
       color: var(--gold);
     }
 
@@ -159,7 +159,7 @@
 
     .sort-select {
       height: 40px;
-      max-width: 170px;
+      width: 170px;
       padding: 0 33px 0 12px;
       border: 1px solid #c9ced6;
       background: #fff;
@@ -171,9 +171,18 @@
     }
 
     #status {
+      display: none;
+      background: #fff;
+      border: 1px solid var(--line);
       color: var(--muted);
       font-size: 13px;
+      padding: 10px 12px;
+      border-radius: 12px;
       margin: 0 0 10px;
+    }
+
+    #status.show {
+      display: block;
     }
 
     .grid {
@@ -229,7 +238,6 @@
       color: #fff;
       font-size: 11px;
       font-weight: 900;
-      backdrop-filter: blur(8px);
     }
 
     .no-image {
@@ -499,14 +507,9 @@
       }
 
       .sort-select {
-        width: 150px;
+        width: 145px;
         height: 38px;
         font-size: 13px;
-      }
-
-      #status {
-        font-size: 12px;
-        margin-bottom: 8px;
       }
 
       .grid {
@@ -624,7 +627,7 @@
       </div>
 
       <div class="hero-row">
-        <h2><span>Gullnummer</span> og VIP mobilnummer</h2>
+        <h1><span>Gullnummer</span> og VIP mobilnummer</h1>
 
         <div class="hero-tags">
           <span class="hero-tag">Kontakt via FINN.no</span>
@@ -648,6 +651,7 @@
       </select>
     </div>
 
+    <div id="status"></div>
     <div id="resultGrid" class="grid"></div>
 
     <section id="info" class="details-area">
@@ -748,6 +752,10 @@
   <script>
     const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxkq176PLFeNf4mFyylRn8qBl9fg5JlRIlwvsWnDI5FYpOBWSMKihJSzFrXf4-c2UgaeA/exec";
 
+    const LOCAL_CACHE_KEY = "NUMMERSALG_FINN_CACHE_V2";
+    const LOCAL_CACHE_MAX_AGE = 1000 * 60 * 60 * 24; // 24 timer
+    const REQUEST_TIMEOUT_MS = 15000;
+
     const countText = document.getElementById("countText");
     const statusEl = document.getElementById("status");
     const grid = document.getElementById("resultGrid");
@@ -756,20 +764,113 @@
     let allItems = [];
     let totalTreff = 0;
 
-    function loadFinn() {
+    function setStatus(text, show = true) {
+      if (!statusEl) return;
 
-      countText.innerText = "0 treff";
+      statusEl.innerText = text || "";
 
+      if (show && text) {
+        statusEl.classList.add("show");
+      } else {
+        statusEl.classList.remove("show");
+      }
+    }
+
+    function showSkeleton() {
       grid.innerHTML = `
         <div class="skeleton"></div>
         <div class="skeleton"></div>
         <div class="skeleton"></div>
         <div class="skeleton"></div>
       `;
+    }
 
+    function loadFinn() {
+      countText.innerText = "0 treff";
+
+      const hadLocalCache = loadFromLocalStorage();
+
+      if (!hadLocalCache) {
+        showSkeleton();
+      }
+
+      fetchFreshFromAppsScript(hadLocalCache);
+    }
+
+    function loadFromLocalStorage() {
+      try {
+        const raw = localStorage.getItem(LOCAL_CACHE_KEY);
+        if (!raw) return false;
+
+        const cached = JSON.parse(raw);
+        if (!cached || !cached.data || !Array.isArray(cached.data.items)) return false;
+
+        allItems = cached.data.items || [];
+        totalTreff = cached.data.total || allItems.length;
+
+        renderItems();
+
+        const age = Date.now() - Number(cached.savedAt || 0);
+
+        if (age > LOCAL_CACHE_MAX_AGE) {
+          setStatus("Viser lagrede annonser. Oppdaterer...", true);
+        } else {
+          setStatus("", false);
+        }
+
+        return true;
+
+      } catch (err) {
+        console.warn("LocalStorage kunne ikke leses:", err);
+        return false;
+      }
+    }
+
+    function saveToLocalStorage(data) {
+      try {
+        if (!data || !Array.isArray(data.items)) return;
+
+        localStorage.setItem(LOCAL_CACHE_KEY, JSON.stringify({
+          savedAt: Date.now(),
+          data: data
+        }));
+
+      } catch (err) {
+        console.warn("LocalStorage kunne ikke lagres:", err);
+      }
+    }
+
+    function fetchFreshFromAppsScript(hadLocalCache) {
       const callbackName = "finnCallback_" + Date.now();
+      let finished = false;
+
+      const timeout = setTimeout(function () {
+        if (finished) return;
+
+        finished = true;
+
+        if (hadLocalCache) {
+          setStatus("Kunne ikke oppdatere akkurat nå. Viser lagrede annonser.", true);
+        } else {
+          setStatus("", false);
+
+          grid.innerHTML = `
+            <div class="empty">
+              <strong>Annonsene kunne ikke lastes inn</strong>
+              Sjekk internett eller prøv igjen senere.
+            </div>
+          `;
+        }
+
+        delete window[callbackName];
+      }, REQUEST_TIMEOUT_MS);
 
       window[callbackName] = function(data) {
+        if (finished) return;
+
+        finished = true;
+        clearTimeout(timeout);
+
         try {
           if (!data || !data.ok) {
             throw new Error(data && data.error ? data.error : "Kunne ikke hente annonser");
@@ -778,18 +879,25 @@
           allItems = Array.isArray(data.items) ? data.items : [];
           totalTreff = data.total || allItems.length;
 
-             renderItems();
+          saveToLocalStorage(data);
+          setStatus("", false);
+          renderItems();
 
         } catch (err) {
           console.error(err);
-          statusEl.innerText = "Feil: " + err.message;
 
-          grid.innerHTML = `
-            <div class="empty">
-              <strong>Annonsene kunne ikke lastes inn</strong>
-              Prøv igjen senere.
-            </div>
-          `;
+          if (hadLocalCache) {
+            setStatus("Kunne ikke oppdatere akkurat nå. Viser lagrede annonser.", true);
+          } else {
+            setStatus("", false);
+
+            grid.innerHTML = `
+              <div class="empty">
+                <strong>Annonsene kunne ikke lastes inn</strong>
+                Prøv igjen senere.
+              </div>
+            `;
+          }
         } finally {
           const oldScript = document.getElementById(callbackName);
           if (oldScript) oldScript.remove();
@@ -800,19 +908,29 @@
 
       const script = document.createElement("script");
       script.id = callbackName;
+      script.async = true;
       script.src = APPS_SCRIPT_URL +
         "?callback=" + encodeURIComponent(callbackName) +
         "&t=" + Date.now();
 
       script.onerror = function() {
-        statusEl.innerText = "Kunne ikke kontakte Apps Script.";
+        if (finished) return;
 
-        grid.innerHTML = `
-          <div class="empty">
-            <strong>Tilkoblingsfeil</strong>
-            Kontroller Apps Script URL.
-          </div>
-        `;
+        finished = true;
+        clearTimeout(timeout);
+
+        if (hadLocalCache) {
+          setStatus("Kunne ikke oppdatere akkurat nå. Viser lagrede annonser.", true);
+        } else {
+          setStatus("", false);
+
+          grid.innerHTML = `
+            <div class="empty">
+              <strong>Tilkoblingsfeil</strong>
+              Apps Script kunne ikke nås.
+            </div>
+          `;
+        }
 
         delete window[callbackName];
       };
@@ -832,7 +950,7 @@
         items.sort((a, b) => parsePrice(b.price) - parsePrice(a.price));
       }
 
-      countText.innerText = totalTreff + " treff";
+      countText.innerText = (totalTreff || items.length) + " treff";
 
       if (!items.length) {
         grid.innerHTML = `
