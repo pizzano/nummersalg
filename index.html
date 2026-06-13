@@ -7,7 +7,6 @@
   <title>Gullnummer og VIP mobilnummer til salgs | Nummersalg.no</title>
 
   <meta name="description" content="Gullnummer, VIP mobilnummer, eksklusive mobilnummer og telefonnummer til salgs. Se tilgjengelige nummer og åpne annonsene direkte på FINN.no." />
-
   <meta name="keywords" content="gullnummer, gullnummer til salgs, VIP mobilnummer, VIP nummer, mobilnummer til salgs, telefonnummer til salgs, nummersalg, eksklusivt mobilnummer, eksklusivt telefonnummer, lett mobilnummer, enkelt mobilnummer, huskevennlig nummer, lett nummer å huske, norsk mobilnummer, spesialnummer, premium mobilnummer, privat mobilnummer, bedriftsnummer, FINN gullnummer, mobilnummer på FINN, kjøp mobilnummer, kjøp gullnummer, selge mobilnummer, nummeroverføring, eierskifte mobilnummer, portering mobilnummer" />
 
   <meta property="og:title" content="Gullnummer og VIP mobilnummer til salgs" />
@@ -179,6 +178,7 @@
       padding: 10px 12px;
       border-radius: 12px;
       margin: 0 0 10px;
+      line-height: 1.45;
     }
 
     #status.show {
@@ -365,13 +365,6 @@
       color: #374151;
       line-height: 1.6;
       font-size: 14px;
-    }
-
-    .info-content h2,
-    .info-content h3 {
-      margin: 12px 0 8px;
-      color: #111827;
-      letter-spacing: -.02em;
     }
 
     .steps {
@@ -561,61 +554,6 @@
       }
     }
   </style>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Nummersalg.no",
-    "url": "https://nummersalg.no/",
-    "description": "Gullnummer, VIP mobilnummer og eksklusive telefonnummer til salgs.",
-    "keywords": [
-      "gullnummer",
-      "VIP mobilnummer",
-      "mobilnummer til salgs",
-      "telefonnummer til salgs",
-      "nummersalg",
-      "eksklusivt mobilnummer",
-      "lett mobilnummer",
-      "huskevennlig nummer",
-      "kjøp gullnummer",
-      "kjøp mobilnummer"
-    ]
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Hva er et gullnummer?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Et gullnummer er et mobilnummer med et spesielt og lett gjenkjennelig tallmønster, for eksempel gjentatte tall, speilvendte tall eller en enkel kombinasjon som er lett å huske."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Hvordan kjøper jeg et VIP mobilnummer?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Velg ønsket nummer, klikk på annonsen og send melding direkte via FINN.no. Eierskifte og eventuell portering avtales etter kjøp."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Kan gullnummer brukes til bedrift?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Ja, et gullnummer eller VIP mobilnummer kan være nyttig for bedrifter fordi nummeret er enklere å huske og kan gi et mer profesjonelt inntrykk."
-        }
-      }
-    ]
-  }
-  </script>
 </head>
 
 <body>
@@ -663,17 +601,14 @@
               <span class="step-number">1</span>
               <span>Velg ønsket gullnummer eller VIP mobilnummer fra listen.</span>
             </div>
-
             <div class="step">
               <span class="step-number">2</span>
               <span>Trykk på bildet eller annonsen.</span>
             </div>
-
             <div class="step">
               <span class="step-number">3</span>
               <span>Annonsen åpnes direkte på FINN.no, hvor du kan sende melding.</span>
             </div>
-
             <div class="step">
               <span class="step-number">4</span>
               <span>Eierskifte og eventuell portering av mobilnummer avtales etter kjøp.</span>
@@ -717,18 +652,10 @@
       <details class="info-box">
         <summary>Hvorfor velge et eksklusivt mobilnummer?</summary>
         <div class="info-content">
-          <h2>Et nummer som er lett å huske</h2>
           <p>
             Et gullnummer har ofte gjentatte tall, speilnummer eller en tydelig tallkombinasjon.
             Dette gjør nummeret enklere å huske, enklere å gi videre og mer synlig i annonser,
             markedsføring, visittkort og kundekontakt.
-          </p>
-
-          <h3>Populært for bedrift og privat bruk</h3>
-          <p>
-            VIP mobilnummer og gullnummer brukes ofte av bedrifter, selgere, håndverkere,
-            transportfirma, restauranter, nettbutikker og privatpersoner som ønsker et mer spesielt
-            og minneverdig telefonnummer.
           </p>
         </div>
       </details>
@@ -752,9 +679,8 @@
   <script>
     const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwJieY-rEdFDfBLIkGq2eDpwSpIIcIvLuy13qwF018p-TQcxxw_d15Z6kmL42xPMgLfYQ/exec";
 
-    const LOCAL_CACHE_KEY = "NUMMERSALG_FINN_CACHE_V2";
-    const LOCAL_CACHE_MAX_AGE = 1000 * 60 * 60 * 24; // 24 timer
-    const REQUEST_TIMEOUT_MS = 15000;
+    const LOCAL_CACHE_KEY = "NUMMERSALG_FINN_CACHE_V4";
+    const REQUEST_TIMEOUT_MS = 16000;
 
     const countText = document.getElementById("countText");
     const statusEl = document.getElementById("status");
@@ -766,14 +692,8 @@
 
     function setStatus(text, show = true) {
       if (!statusEl) return;
-
       statusEl.innerText = text || "";
-
-      if (show && text) {
-        statusEl.classList.add("show");
-      } else {
-        statusEl.classList.remove("show");
-      }
+      statusEl.classList.toggle("show", Boolean(show && text));
     }
 
     function showSkeleton() {
@@ -788,13 +708,172 @@
     function loadFinn() {
       countText.innerText = "0 treff";
 
-      const hadLocalCache = loadFromLocalStorage();
+      const hadCache = loadFromLocalStorage();
 
-      if (!hadLocalCache) {
+      if (!hadCache) {
         showSkeleton();
+        setStatus("Laster annonser...", true);
       }
 
-      fetchFreshFromAppsScript(hadLocalCache);
+      getDataSmart()
+        .then(data => {
+          if (!data || !data.ok) {
+            throw new Error(data && data.error ? data.error : "Kunne ikke hente annonser");
+          }
+
+          allItems = Array.isArray(data.items) ? data.items : [];
+          totalTreff = data.total || allItems.length;
+
+          saveToLocalStorage(data);
+          setStatus("", false);
+          renderItems();
+        })
+        .catch(err => {
+          console.error(err);
+
+          if (hadCache) {
+            setStatus("Kunne ikke oppdatere akkurat nå. Viser lagrede annonser.", true);
+            return;
+          }
+
+          setStatus("", false);
+
+          grid.innerHTML = `
+            <div class="empty">
+              <strong>Annonsene kunne ikke lastes inn</strong>
+              Prøv å åpne siden i Chrome, Edge eller Safari.
+            </div>
+          `;
+        });
+    }
+
+    function getDataSmart() {
+      const directJsonp = () => loadByJsonp(APPS_SCRIPT_URL, REQUEST_TIMEOUT_MS);
+
+      const proxy1 = () => loadByFetch(
+        "https://api.allorigins.win/raw?url=" + encodeURIComponent(APPS_SCRIPT_URL + "?t=" + Date.now()),
+        REQUEST_TIMEOUT_MS
+      );
+
+      const proxy2 = () => loadByFetch(
+        "https://api.codetabs.com/v1/proxy?quest=" + encodeURIComponent(APPS_SCRIPT_URL + "?t=" + Date.now()),
+        REQUEST_TIMEOUT_MS
+      );
+
+      return firstSuccessful([directJsonp, proxy1, proxy2]);
+    }
+
+    function firstSuccessful(loaders) {
+      return new Promise((resolve, reject) => {
+        let failed = 0;
+        let done = false;
+        let lastError = null;
+
+        loaders.forEach(loader => {
+          loader()
+            .then(data => {
+              if (done) return;
+              done = true;
+              resolve(data);
+            })
+            .catch(err => {
+              failed++;
+              lastError = err;
+
+              if (failed >= loaders.length && !done) {
+                reject(lastError || new Error("Alle tilkoblinger feilet"));
+              }
+            });
+        });
+      });
+    }
+
+    function loadByFetch(url, timeoutMs) {
+      return new Promise((resolve, reject) => {
+        const controller = new AbortController();
+
+        const timer = setTimeout(() => {
+          controller.abort();
+          reject(new Error("Timeout"));
+        }, timeoutMs);
+
+        fetch(url, {
+          method: "GET",
+          signal: controller.signal,
+          cache: "no-store"
+        })
+          .then(res => {
+            if (!res.ok) throw new Error("HTTP " + res.status);
+            return res.text();
+          })
+          .then(text => {
+            clearTimeout(timer);
+
+            let data;
+            try {
+              data = JSON.parse(text);
+            } catch (err) {
+              throw new Error("Ugyldig JSON");
+            }
+
+            resolve(data);
+          })
+          .catch(err => {
+            clearTimeout(timer);
+            reject(err);
+          });
+      });
+    }
+
+    function loadByJsonp(baseUrl, timeoutMs) {
+      return new Promise((resolve, reject) => {
+        const callbackName = "finnCallback_" + Date.now() + "_" + Math.floor(Math.random() * 100000);
+        let finished = false;
+
+        const timer = setTimeout(() => {
+          if (finished) return;
+          finished = true;
+          cleanupJsonp(callbackName);
+          reject(new Error("JSONP timeout"));
+        }, timeoutMs);
+
+        window[callbackName] = function(data) {
+          if (finished) return;
+          finished = true;
+          clearTimeout(timer);
+          cleanupJsonp(callbackName);
+          resolve(data);
+        };
+
+        const script = document.createElement("script");
+        script.id = callbackName;
+        script.async = true;
+        script.referrerPolicy = "no-referrer";
+        script.src = baseUrl +
+          "?callback=" + encodeURIComponent(callbackName) +
+          "&t=" + Date.now();
+
+        script.onerror = function() {
+          if (finished) return;
+          finished = true;
+          clearTimeout(timer);
+          cleanupJsonp(callbackName);
+          reject(new Error("JSONP error"));
+        };
+
+        document.body.appendChild(script);
+      });
+    }
+
+    function cleanupJsonp(callbackName) {
+      const script = document.getElementById(callbackName);
+      if (script) script.remove();
+
+      try {
+        delete window[callbackName];
+      } catch (err) {
+        window[callbackName] = undefined;
+      }
     }
 
     function loadFromLocalStorage() {
@@ -809,19 +888,10 @@
         totalTreff = cached.data.total || allItems.length;
 
         renderItems();
-
-        const age = Date.now() - Number(cached.savedAt || 0);
-
-        if (age > LOCAL_CACHE_MAX_AGE) {
-          setStatus("Viser lagrede annonser. Oppdaterer...", true);
-        } else {
-          setStatus("", false);
-        }
+        setStatus("Viser lagrede annonser. Oppdaterer...", true);
 
         return true;
-
       } catch (err) {
-        console.warn("LocalStorage kunne ikke leses:", err);
         return false;
       }
     }
@@ -834,108 +904,7 @@
           savedAt: Date.now(),
           data: data
         }));
-
-      } catch (err) {
-        console.warn("LocalStorage kunne ikke lagres:", err);
-      }
-    }
-
-    function fetchFreshFromAppsScript(hadLocalCache) {
-      const callbackName = "finnCallback_" + Date.now();
-      let finished = false;
-
-      const timeout = setTimeout(function () {
-        if (finished) return;
-
-        finished = true;
-
-        if (hadLocalCache) {
-          setStatus("Kunne ikke oppdatere akkurat nå. Viser lagrede annonser.", true);
-        } else {
-          setStatus("", false);
-
-          grid.innerHTML = `
-            <div class="empty">
-              <strong>Annonsene kunne ikke lastes inn</strong>
-              Sjekk internett eller prøv igjen senere.
-            </div>
-          `;
-        }
-
-        delete window[callbackName];
-      }, REQUEST_TIMEOUT_MS);
-
-      window[callbackName] = function(data) {
-        if (finished) return;
-
-        finished = true;
-        clearTimeout(timeout);
-
-        try {
-          if (!data || !data.ok) {
-            throw new Error(data && data.error ? data.error : "Kunne ikke hente annonser");
-          }
-
-          allItems = Array.isArray(data.items) ? data.items : [];
-          totalTreff = data.total || allItems.length;
-
-          saveToLocalStorage(data);
-          setStatus("", false);
-          renderItems();
-
-        } catch (err) {
-          console.error(err);
-
-          if (hadLocalCache) {
-            setStatus("Kunne ikke oppdatere akkurat nå. Viser lagrede annonser.", true);
-          } else {
-            setStatus("", false);
-
-            grid.innerHTML = `
-              <div class="empty">
-                <strong>Annonsene kunne ikke lastes inn</strong>
-                Prøv igjen senere.
-              </div>
-            `;
-          }
-        } finally {
-          const oldScript = document.getElementById(callbackName);
-          if (oldScript) oldScript.remove();
-
-          delete window[callbackName];
-        }
-      };
-
-      const script = document.createElement("script");
-      script.id = callbackName;
-      script.async = true;
-      script.src = APPS_SCRIPT_URL +
-        "?callback=" + encodeURIComponent(callbackName) +
-        "&t=" + Date.now();
-
-      script.onerror = function() {
-        if (finished) return;
-
-        finished = true;
-        clearTimeout(timeout);
-
-        if (hadLocalCache) {
-          setStatus("Kunne ikke oppdatere akkurat nå. Viser lagrede annonser.", true);
-        } else {
-          setStatus("", false);
-
-          grid.innerHTML = `
-            <div class="empty">
-              <strong>Tilkoblingsfeil</strong>
-              Apps Script kunne ikke nås.
-            </div>
-          `;
-        }
-
-        delete window[callbackName];
-      };
-
-      document.body.appendChild(script);
+      } catch (err) {}
     }
 
     function renderItems() {
@@ -1015,7 +984,6 @@
 
     function parsePrice(priceText) {
       if (!priceText) return 999999999;
-
       const number = String(priceText).replace(/[^\d]/g, "");
       return number ? Number(number) : 999999999;
     }
