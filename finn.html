@@ -1,28 +1,269 @@
-<!DOCTYPE html>
-<html>
+
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f5f5f2">
+<meta name="description" content="Finn ditt neste VIP-mobilnummer. Oppdatert oversikt over gullnummer til salgs.">
+<title>Gullnummer — Eksklusive mobilnummer</title>
+<style>
+  :root{--bg:#f5f5f2;--paper:#fff;--ink:#171a1c;--muted:#72787b;--line:#e4e5e3;--navy:#151a20;--gold:#bd8d4b;--gold-pale:#efe4d0;--radius:17px;--shadow:0 1px 3px #2024290b,0 10px 28px #20242907}
+  *{box-sizing:border-box}
+  html,body{margin:0;min-width:315px;min-height:100%;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
+  html{scroll-behavior:smooth}
+  button,input,select{font:inherit}button{cursor:pointer}button:disabled{opacity:.45;cursor:default}a{text-decoration:none;color:inherit}
+  button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #bd8d4b;outline-offset:3px}
+  .app{height:100dvh;min-height:560px;max-width:1580px;margin:auto;padding:15px clamp(14px,3.2vw,48px) 15px;display:flex;flex-direction:column;gap:13px;overflow:hidden}
+  .header{height:48px;flex:none;display:flex;align-items:center;justify-content:space-between;gap:14px}
+  .brand{display:flex;align-items:center;gap:11px;min-width:0}
+  .brand-symbol{display:grid;place-items:center;width:43px;height:43px;flex:none;background:var(--navy);color:#e5c99a;border-radius:13px;font-family:Georgia,serif;font-size:23px;font-weight:700;letter-spacing:-.12em;padding-right:5px}
+  .brand-title{display:block;font-weight:850;letter-spacing:-.035em;font-size:18px;line-height:1.1}
+  .brand-sub{display:block;color:var(--muted);font-size:11px;margin-top:4px;letter-spacing:.085em;text-transform:uppercase;font-weight:670}
+  .navright{display:flex;align-items:center;gap:10px}
+  .live-dot{width:7px;height:7px;background:#5f9c77;border-radius:50%;box-shadow:0 0 0 3px #e0ede5;flex:none}
+  .seller{display:flex;align-items:center;gap:8px;font-size:12px;color:#686e70;white-space:nowrap}
+  .outlink{display:inline-flex;align-items:center;justify-content:center;gap:7px;border:1px solid #d4d5d2;color:#333a3b;background:#fff;border-radius:11px;padding:9px 13px;font-size:12px;font-weight:750;white-space:nowrap;transition:background .2s,border-color .2s}
+  .outlink:hover{background:#f6f1e7;border-color:#d1b37c}
+  .hero{flex:none;background:var(--navy);border-radius:18px;padding:19px 25px;color:#faf9f5;display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:104px;position:relative;overflow:hidden;isolation:isolate}
+  .hero::before{content:"";position:absolute;right:13%;top:-116px;width:240px;height:240px;border:1px solid #bd8d4b55;transform:rotate(25deg);border-radius:50%;z-index:-1;box-shadow:0 0 0 35px #bd8d4b0a,0 0 0 82px #bd8d4b06}
+  .hero-left{min-width:0}.eyebrow{display:flex;align-items:center;gap:8px;color:#d9b47c;font-size:10px;letter-spacing:.15em;font-weight:800;text-transform:uppercase;margin-bottom:5px}.eyebrow::before{content:"";width:20px;height:1px;background:currentColor}
+  h1{font-size:clamp(22px,2.6vw,34px);font-weight:740;letter-spacing:-.053em;line-height:1.13;margin:0 0 5px}h1 em{font-family:Georgia,serif;font-weight:500;font-style:italic;color:#e7c694}
+  .subtitle{color:#b9bdc1;font-size:12px;margin:0;line-height:1.35}
+  .hero-right{display:flex;align-items:center;gap:17px;flex:none}
+  .count{line-height:1;text-align:right}.count strong{display:block;font-size:clamp(28px,3.7vw,43px);font-weight:750;letter-spacing:-.07em;color:#f1d1a0}.count span{display:block;color:#babec2;font-size:11px;margin-top:6px;white-space:nowrap}
+  .hero-crown{display:grid;place-items:center;border:1px solid #b88e5268;background:#b88e520c;border-radius:15px;width:56px;height:56px;font-size:25px;color:#efc889}
+  .filters{flex:none;display:flex;flex-wrap:wrap;align-items:center;gap:9px}
+  .search{display:flex;align-items:center;gap:9px;flex:1;min-width:180px;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:0 12px;box-shadow:var(--shadow);transition:border-color .2s}
+  .search:focus-within{border-color:var(--gold)}.search svg{color:#848b8d;flex:none}
+  .search input{background:transparent;border:0;outline:0;min-width:0;width:100%;height:44px;font-size:13px;color:var(--ink)}.search input::placeholder{color:#9a9d9b}
+  .selectbox{display:flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--paper);box-shadow:var(--shadow);border-radius:12px;padding:0 12px;height:46px}
+  .selectbox small{color:#929997;font-size:11px;font-weight:650;white-space:nowrap}.selectbox select{border:0;outline:0;background:transparent;color:#333;font-size:12px;font-weight:720;max-width:158px;cursor:pointer}
+  .refresh{width:46px;height:46px;display:grid;place-items:center;border-radius:12px;border:1px solid var(--line);background:var(--paper);box-shadow:var(--shadow);color:#656a67;transition:.2s;flex:none;font-size:20px}
+  .refresh:hover{color:#171a1c;border-color:var(--gold)}.refresh.loading svg{animation:spin 1s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+  .underbar{flex:none;display:flex;justify-content:space-between;gap:10px;align-items:center;min-height:29px}
+  .chips{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;min-width:0}.chips::-webkit-scrollbar{display:none}
+  .chip{border:1px solid #e2e3df;background:#fff;color:#666b69;border-radius:99px;padding:7px 12px;font-size:11px;line-height:1;font-weight:750;white-space:nowrap;transition:.2s}
+  .chip:hover{border-color:#bd8d4b}.chip[aria-pressed="true"]{border-color:#262a2c;background:#262a2c;color:#fff}
+  .results{font-size:11px;color:var(--muted);font-weight:650;white-space:nowrap}
+  .main-grid{flex:1;min-height:0;display:grid;grid-template-columns:repeat(var(--cols,4),minmax(0,1fr));grid-template-rows:repeat(var(--rows,1),minmax(0,1fr));gap:13px;touch-action:pan-y}
+  .card{min-width:0;min-height:0;overflow:hidden;display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);transition:border-color .18s,transform .18s,box-shadow .18s;position:relative}
+  .card:hover{transform:translateY(-2px);box-shadow:0 8px 28px #13181e18;border-color:#c7b493}
+  .media{position:relative;flex:1;min-height:0;background:#090a0b;overflow:hidden;display:flex;align-items:center;justify-content:center}
+  .media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s;max-width:100%}.card:hover .media img{transform:scale(1.025)}
+  .media .fallback{font-family:Georgia,serif;color:#e8c58d;font-size:clamp(28px,4vw,56px);letter-spacing:.09em;font-weight:700}
+  .media-mark{position:absolute;top:9px;left:9px;background:#0d1015b8;border:1px solid #c2a37177;border-radius:7px;color:#ead0a0;backdrop-filter:blur(8px);padding:4px 7px;font-size:9px;letter-spacing:.08em;font-weight:850}
+  .card-info{flex:none;min-height:72px;padding:10px 12px 11px;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;column-gap:8px}
+  .card-title{min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:12px;color:#61666b;margin:0 0 5px;font-weight:600}
+  .card-price{font-size:20px;line-height:1.1;letter-spacing:-.04em;font-weight:820;color:#202326}.card-price small{font-size:11px;font-weight:650;letter-spacing:0;color:#75797d;margin-left:2px}
+  .card-go{display:grid;place-items:center;width:30px;height:30px;background:#f5f0e8;border:1px solid #eee3d4;color:#926e37;border-radius:9px;font-size:17px;transition:background .2s}.card:hover .card-go{background:#ead7b6}
+  .empty{grid-column:1/-1;grid-row:1/-1;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;background:#fff;border:1px dashed #d5d7d3;border-radius:17px;text-align:center;color:var(--muted);padding:18px}
+  .empty strong{color:#22282b;font-size:16px}.empty span{font-size:12px;max-width:440px}
+  .skeleton{pointer-events:none}.skeleton .media{background:linear-gradient(110deg,#e6e7e3 20%,#f4f5f1 40%,#e6e7e3 65%);background-size:200% 100%;animation:shimmer 1.6s ease infinite}.skeleton .card-info{background:#fff}.skeleton .card-title,.skeleton .card-price{background:#eff0ed;border-radius:5px;height:10px;color:transparent;width:85%;font-size:0}.skeleton .card-price{height:18px;width:55%;margin-top:10px}@keyframes shimmer{to{background-position-x:-200%}}
+  .pagination{flex:none;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:54px}
+  .page-info{display:flex;flex-direction:column;gap:3px}.page-info strong{font-size:12px;color:#3f4545}.page-info span{font-size:11px;color:var(--muted)}
+  .pagecontrols{display:flex;align-items:center;gap:7px}.pagebtn{height:37px;min-width:37px;padding:0 9px;border-radius:10px;border:1px solid #dfe0dd;background:#fff;font-size:12px;font-weight:760;display:grid;place-items:center;color:#6a6e70;transition:.16s}
+  .pagebtn:hover:not(:disabled){border-color:#b98b50;background:#f8f0e5;color:#573f20}.pagebtn.active{background:#252a2e;color:#fff;border-color:#252a2e}
+  .pagebtn.arrow{font-size:21px;font-weight:400}.pagebtn.more{border:0;background:transparent;pointer-events:none}
+  .footlink{color:#8c9291;font-size:11px;white-space:nowrap}.footlink a{color:#845b27;font-weight:750}
+  @media(max-height:780px) and (min-width:701px){.app{gap:10px;padding-top:11px;padding-bottom:9px}.hero{padding:13px 22px;min-height:84px}.hero-crown{width:43px;height:43px}.brand-symbol{height:40px;width:40px}.underbar{min-height:24px}.pagination{min-height:48px}}
+  @media(max-width:900px){.seller{display:none}.hero-crown{display:none}.footlink{display:none}.card-info{padding:9px 10px;min-height:68px}.card-price{font-size:18px}}
+  @media(max-width:700px){.app{padding:10px 11px 9px;gap:10px;min-height:530px}.header{height:42px}.brand-symbol{height:37px;width:37px;border-radius:11px;font-size:21px}.brand-title{font-size:16px}.brand-sub{font-size:9px}.outlink{padding:9px;font-size:11px}.hero{min-height:86px;border-radius:14px;padding:15px 17px}.eyebrow{font-size:9px}h1{font-size:23px}.subtitle{font-size:11px;max-width:260px}.count strong{font-size:29px}.count span{font-size:9px}.filters{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:7px}.search{grid-column:1/-1}.search input{height:38px}.selectbox{height:37px;padding:0 10px}.refresh{height:37px;width:39px}.underbar{align-items:center}.results{display:none}.main-grid{gap:9px}.card{border-radius:12px}.card-info{min-height:67px;padding:8px 9px}.card-title{font-size:11px}.card-price{font-size:17px}.card-price small{font-size:10px}.card-go{height:28px;width:28px}.pagination{min-height:45px}.page-info strong{font-size:11px}.page-info span{font-size:10px}.pagebtn{height:33px;min-width:33px;border-radius:9px;padding:0 7px}.pagecontrols{gap:4px}}
+  @media(max-width:370px){.brand-sub{display:none}.count{display:none}h1{font-size:22px}}
+  @media(max-height:660px){.app{gap:7px}.hero{min-height:66px;padding:10px 16px}.eyebrow{display:none}.subtitle{display:none}.pagination{min-height:40px}.card-info{min-height:59px;padding:6px 9px}.filters .search input{height:36px}}
+  @media(max-height:525px){.app{height:auto;min-height:525px;overflow:visible}body{overflow:auto}}
+  @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
 <body>
-<h1>JavaScript Fetch API</h1>
-<h2>Fetching a Text File</h2>
-
-<p id="demo"></p>
-
+<div class="app" id="app">
+  <header class="header">
+    <a class="brand" href="https://www.finn.no/recommerce/seller/553930947" target="_blank" rel="noopener noreferrer" aria-label="VIP Gullnummer – FINN profil">
+      <span class="brand-symbol">V✦</span>
+      <span><span class="brand-title">GULLNUMMER</span><span class="brand-sub">Utvalgte mobilnumre</span></span>
+    </a>
+    <div class="navright"><span class="seller"><i class="live-dot"></i> FINN-verifisert selger</span><a class="outlink" href="https://www.finn.no/recommerce/seller/553930947" target="_blank" rel="noopener noreferrer">Min FINN-profil <span aria-hidden="true">↗</span></a></div>
+  </header>
+  <section class="hero" aria-label="VIP mobilnummer">
+    <div class="hero-left"><div class="eyebrow">VIP · Gullnummer</div><h1>Et nummer som <em>blir husket.</em></h1><p class="subtitle">Eksklusive mobilnumre. Finn din favoritt og åpne annonsen på FINN.</p></div>
+    <div class="hero-right"><div class="count"><strong id="heroCount">—</strong><span>annonser på FINN</span></div><div class="hero-crown" aria-hidden="true">♛</div></div>
+  </section>
+  <div class="filters" role="search">
+    <label class="search"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.5" cy="10.5" r="7.5"/><path d="m16.4 16.4 5 5"/></svg><input id="search" type="search" placeholder="Søk etter nummer, f.eks. 40 33…" aria-label="Søk blant annonser" autocomplete="off"></label>
+    <label class="selectbox"><small>Sorter:</small><select id="sort" aria-label="Sorter annonser"><option value="relevant">Mest relevant</option><option value="priceAsc">Laveste pris</option><option value="priceDesc">Høyeste pris</option><option value="title">Nummer A–Å</option></select></label>
+    <button class="refresh" id="reload" type="button" aria-label="Oppdater annonser" title="Oppdater annonser"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 7v5h-5"/><path d="M4.9 10A7.5 7.5 0 0 1 18.2 6.2L20 12M4 17v-5h5"/><path d="M19.1 14A7.5 7.5 0 0 1 5.8 17.8L4 12"/></svg></button>
+  </div>
+  <div class="underbar"><div class="chips" aria-label="Prisfilter"><button type="button" class="chip" aria-pressed="true" data-filter="all">Alle</button><button type="button" class="chip" aria-pressed="false" data-filter="low">Under 1 500 kr</button><button type="button" class="chip" aria-pressed="false" data-filter="mid">1 500–3 000 kr</button><button type="button" class="chip" aria-pressed="false" data-filter="high">Over 3 000 kr</button></div><span class="results" id="resultSummary">Henter annonser…</span></div>
+  <main class="main-grid" id="cards" aria-live="polite" aria-label="Annonser"></main>
+  <nav class="pagination" aria-label="Bla mellom annonser"><div class="page-info"><strong id="pageLabel">Laster annonser…</strong><span id="status" role="status" aria-live="polite">Data fra FINN.no</span></div><div class="pagecontrols" id="pageControls"></div><span class="footlink">Trykk på en annonse for å åpne <a href="https://www.finn.no/recommerce/seller/553930947" target="_blank" rel="noopener noreferrer">FINN.no ↗</a></span></nav>
+</div>
 <script>
-let file = "https://script.google.com/macros/s/AKfycbxorZi_QP5Rh8a6NCvdPYY2r6OmsBVyVRjUvE4j3BAox2FE9Jdwj37U4AMWl7S-5cLiSA/exec";
+(() => {
+  'use strict';
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwM4d5QmycLzzvKkf-Y-lodWzDYw6bV_AzsAayizWNSy2Q4M7JSMiwphNgihrcFIYhrmQ/exec';
+  const FINN_SELLER = 'https://www.finn.no/recommerce/seller/553930947';
+  const CACHE_KEY = 'vip-finn-listings-v3';
+  const el = id => document.getElementById(id);
+  const state = {items:[],total:0,visible:[],page:1,filter:'all',cols:4,rows:1,loading:false,errors:[],fromCache:false};
+  const formatPrice = n => new Intl.NumberFormat('nb-NO').format(n);
 
-// Fetch a file
-fetch(file)
-  .then(function(response) {
-    return response.text();
-  })
-  .then(function(data) {
-    myDisplayer(data);
-  });
-
-// Function to display any text
-function myDisplayer(text) {
-  document.getElementById("demo").innerText = text;
-}
+  function parseHTML(html) {
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    const host = doc.querySelector('#app[data-config]');
+    if (host) {
+      try {
+        const str = atob(host.getAttribute('data-config').replace(/\s+/g,''));
+        const arr = Uint8Array.from(str, c => c.charCodeAt(0));
+        const cfg = JSON.parse(new TextDecoder().decode(arr));
+        const props = cfg.props || {};
+        const items = (props.items || []).map(entry => {
+          const id = String(entry.id || '');
+          const info = entry.data || {};
+          const amount = Number(info.price?.amount || 0);
+          return {id, title:String(info.title || 'VIP mobilnummer'),amount,image:String(info.imageUris?.[0] || ''),url:'https://www.finn.no/'+id};
+        }).filter(item => /^\d{7,12}$/.test(item.id));
+        if(items.length) return {items, total:Number(props.hits || props.userProfile?.totalItems || items.length),pages:Number(props.pagination?.lastPage || 1)};
+      } catch(err) {console.warn('FINN data-config kunne ikke leses',err);}
+    }
+    // FINN's server-rendered w-card nodes work even when the Base64 config changes.
+    const items = [...doc.querySelectorAll('w-card')].map(card => {
+      const anchor = card.querySelector('a[data-card-action]');
+      const id = (anchor?.getAttribute('href') || '').match(/^\/(\d{7,12})\/?$/)?.[1];
+      if(!id) return null;
+      const raw = card.textContent || '';
+      const amount = Number((raw.match(/([\d\s\u00a0]+)\s*kr/i)?.[1] || '').replace(/\D/g,''));
+      return {id,title:anchor.textContent.trim() || 'VIP mobilnummer',amount,image:card.querySelector('img')?.getAttribute('src') || '',url:'https://www.finn.no/'+id};
+    }).filter(Boolean);
+    const total = Number(doc.querySelector('nav[aria-label="Butikkavdelinger"]')?.textContent.match(/Annonser\s*\((\d+)\)/)?.[1] || items.length);
+    const pages = Number(doc.querySelector('w-pagination')?.getAttribute('pages') || (total>items.length?2:1));
+    return {items,total,pages};
+  }
+  function validImage(url) {try{const parsed=new URL(url);return parsed.protocol==='https:'&&parsed.hostname==='images.finncdn.no'}catch{return false}}
+  async function fetchPage(page) {
+    const url=APPS_SCRIPT_URL+(page>1?'?page='+page:'');
+    const res=await fetch(url,{cache:'no-store'});
+    if(!res.ok)throw new Error('Apps Script HTTP '+res.status);
+    const html=await res.text();
+    if(!/<html\b|id=["']app["']/i.test(html))throw new Error('Beklenen FINN HTML verisi dönmedi');
+    const parsed=parseHTML(html);
+    if(!parsed.items.length)throw new Error('Side '+page+' inneholder ingen lesbare annonser');
+    return parsed;
+  }
+  function setSkeleton(){el('cards').replaceChildren();for(let i=0;i<state.cols*state.rows;i++){const node=document.createElement('div');node.className='card skeleton';node.innerHTML='<div class="media"></div><div class="card-info"><div><div class="card-title"></div><div class="card-price"></div></div></div>';el('cards').append(node)}}
+  function layout(){
+    const w=window.innerWidth,h=window.innerHeight;
+    const cols=w>=1420?5:w>=1050?4:w>=710?3:2;
+    const rows=(h>=830 && w>=710)||(h>=770 && w<710)?2:1;
+    state.cols=cols;state.rows=rows;
+    el('cards').style.setProperty('--cols',cols);el('cards').style.setProperty('--rows',rows);
+    return cols*rows;
+  }
+  function card(item){
+    const a=document.createElement('a');a.className='card';a.href=item.url;a.target='_blank';a.rel='noopener noreferrer';a.title=item.title;
+    a.setAttribute('aria-label',item.title+' – '+(item.amount?formatPrice(item.amount)+' kr':'Se pris på FINN'));
+    const media=document.createElement('div');media.className='media';
+    if(validImage(item.image)){
+      const img=document.createElement('img');img.src=item.image;img.loading='lazy';img.decoding='async';img.alt=item.title;
+      img.onerror=()=>{img.remove();const fallback=document.createElement('span');fallback.className='fallback';fallback.textContent='VIP';media.prepend(fallback)};
+      media.append(img);
+    } else {const fallback=document.createElement('span');fallback.className='fallback';fallback.textContent='VIP';media.append(fallback)}
+    const mark=document.createElement('span');mark.className='media-mark';mark.textContent='VIP GULLNUMMER';media.append(mark);
+    const info=document.createElement('div');info.className='card-info';
+    const left=document.createElement('div');left.style.minWidth='0';
+    const title=document.createElement('p');title.className='card-title';title.textContent=item.title;
+    const price=document.createElement('div');price.className='card-price';
+    if(item.amount){price.append(document.createTextNode(formatPrice(item.amount)));const kr=document.createElement('small');kr.textContent='kr';price.append(kr)}else{price.textContent='Se pris';}
+    left.append(title,price);
+    const go=document.createElement('span');go.className='card-go';go.setAttribute('aria-hidden','true');go.textContent='↗';
+    info.append(left,go);a.append(media,info);return a;
+  }
+  function applyFilters(reset=true){
+    const query=el('search').value.trim().toLocaleLowerCase('nb-NO').normalize('NFKC').replace(/\s+/g,'');
+    const filtered=state.items.filter(x=>{
+      const text=(x.title+' '+x.id).normalize('NFKC').toLocaleLowerCase('nb-NO').replace(/\s+/g,'');
+      if(query&&!text.includes(query))return false;
+      if(state.filter==='low')return x.amount<1500;
+      if(state.filter==='mid')return x.amount>=1500&&x.amount<=3000;
+      if(state.filter==='high')return x.amount>3000;
+      return true;
+    });
+    const sort=el('sort').value;
+    if(sort==='priceAsc')filtered.sort((a,b)=>a.amount-b.amount);
+    if(sort==='priceDesc')filtered.sort((a,b)=>b.amount-a.amount);
+    if(sort==='title')filtered.sort((a,b)=>a.title.localeCompare(b.title,'nb'));
+    state.visible=filtered;
+    if(reset)state.page=1;
+    render();
+  }
+  function pageButton(text,page,disabled=false,extra=''){
+    const btn=document.createElement('button');btn.type='button';btn.className='pagebtn '+extra;btn.textContent=text;btn.disabled=disabled;
+    if(extra.includes('num')&&page===state.page){btn.classList.add('active');btn.setAttribute('aria-current','page')}
+    btn.addEventListener('click',()=>go(page));return btn;
+  }
+  function go(page){
+    const size=state.cols*state.rows,pages=Math.max(1,Math.ceil(state.visible.length/size));
+    const next=Math.min(pages,Math.max(1,page));if(next===state.page)return;state.page=next;render();
+  }
+  function pagination(pages){
+    const group=el('pageControls');group.replaceChildren();
+    group.append(pageButton('‹',state.page-1,state.page===1,'arrow'));
+    const current=state.page;
+    const maxButtons=window.innerWidth<500?3:5;
+    const first=Math.max(1,Math.min(current-Math.floor(maxButtons/2),pages-maxButtons+1));
+    const last=Math.min(pages,first+maxButtons-1);
+    for(let p=first;p<=last;p++)group.append(pageButton(p,p,false,'num'+((p===first||p===last)?' aux':'')));
+    group.append(pageButton('›',state.page+1,state.page>=pages,'arrow'));
+  }
+  function render(){
+    const size=state.cols*state.rows;
+    const pages=Math.max(1,Math.ceil(state.visible.length/size));
+    state.page=Math.max(1,Math.min(state.page,pages));
+    const start=(state.page-1)*size;
+    const shown=state.visible.slice(start,start+size);
+    el('cards').replaceChildren();
+    if(!shown.length){const empty=document.createElement('div');empty.className='empty';const head=document.createElement('strong');head.textContent=state.loading?'Henter annonser…':'Ingen annonser funnet';const note=document.createElement('span');note.textContent=state.loading?'Laster data fra FINN.no.':'Prøv et annet søk eller prisfilter.';empty.append(head,note);el('cards').append(empty)}else el('cards').append(...shown.map(card));
+    el('heroCount').textContent=state.total||state.items.length||'—';
+    el('resultSummary').textContent=state.items.length+' av '+(state.total||state.items.length)+' hentet · '+state.visible.length+' treff';
+    el('pageLabel').textContent=state.visible.length ? (start+1)+'–'+Math.min(start+shown.length,state.visible.length)+' av '+state.visible.length+' annonser' : '0 annonser';
+    pagination(pages);
+    if(!state.loading){el('status').textContent=state.errors.length ? ('Lastet '+state.items.length+' av '+state.total+' · enkelte sider mangler') : (state.fromCache?'Lagret oversikt · trykk ↻ for å oppdatere':'Oppdatert fra FINN · side '+state.page+' av '+pages)}
+  }
+  function saveCache(){try{localStorage.setItem(CACHE_KEY,JSON.stringify({date:Date.now(),items:state.items,total:state.total}))}catch{}}
+  function loadCache(){try{const v=JSON.parse(localStorage.getItem(CACHE_KEY)||'null');if(v&&Array.isArray(v.items)&&v.items.length){state.items=v.items;state.total=v.total||v.items.length;state.fromCache=true;applyFilters();return true}}catch{}return false}
+  async function refresh(){
+    if(state.loading)return;
+    state.loading=true;state.errors=[];state.fromCache=false;el('reload').disabled=true;el('reload').classList.add('loading');el('status').textContent='Henter annonser…';
+    if(!state.items.length){setSkeleton();el('pageLabel').textContent='Laster annonser…'}
+    try{
+      const first=await fetchPage(1);
+      state.total=first.total||first.items.length;
+      const map=new Map(first.items.map(x=>[x.id,x]));
+      state.items=Array.from(map.values());applyFilters(false);
+      const lastPage=Math.min(10,Math.max(1,first.pages||Math.ceil(state.total/24)));
+      if(lastPage>1){
+        el('status').textContent='Henter side 2 av '+lastPage+'…';
+        const pages=Array.from({length:lastPage-1},(_,i)=>i+2);
+        const results=await Promise.allSettled(pages.map(fetchPage));
+        results.forEach((result,index)=>{if(result.status==='fulfilled'){for(const x of result.value.items)map.set(x.id,x)}else state.errors.push('Side '+pages[index]+': '+result.reason.message)});
+        state.items=Array.from(map.values());applyFilters(false);
+      }
+      if (state.items.length < state.total) state.errors.push('Noen annonser ble ikke lastet');
+      saveCache();
+    }catch(err){
+      console.error(err);state.errors.push(err.message);
+      if(!state.items.length)loadCache();
+      if(!state.items.length){el('cards').replaceChildren();const empty=document.createElement('div');empty.className='empty';const title=document.createElement('strong');title.textContent='Kunne ikke hente annonser';const body=document.createElement('span');body.textContent='Sjekk Apps Script-tilgang og prøv igjen. Du kan fortsatt se annonsene på FINN.no.';const a=document.createElement('a');a.href=FINN_SELLER;a.target='_blank';a.rel='noopener noreferrer';a.className='outlink';a.textContent='Åpne FINN ↗';empty.append(title,body,a);el('cards').append(empty)}
+    }finally{state.loading=false;el('reload').disabled=false;el('reload').classList.remove('loading');if(state.items.length)applyFilters(false);else{el('status').textContent=state.errors[0]||'Ingen data';el('pageLabel').textContent='Ingen annonser';el('pageControls').replaceChildren();}}
+  }
+  let swipeX=null,swipeY=null;
+  el('cards').addEventListener('touchstart',e=>{if(e.touches.length===1){swipeX=e.touches[0].clientX;swipeY=e.touches[0].clientY}},{passive:true});
+  el('cards').addEventListener('touchend',e=>{if(swipeX===null)return;const dx=e.changedTouches[0].clientX-swipeX,dy=e.changedTouches[0].clientY-swipeY;swipeX=null;swipeY=null;if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.6)go(state.page+(dx<0?1:-1))},{passive:true});
+  document.addEventListener('keydown',e=>{if(['INPUT','SELECT','TEXTAREA'].includes(document.activeElement.tagName))return;if(e.key==='ArrowRight')go(state.page+1);if(e.key==='ArrowLeft')go(state.page-1)});
+  el('search').addEventListener('input',()=>applyFilters());el('sort').addEventListener('change',()=>applyFilters());el('reload').addEventListener('click',refresh);
+  document.querySelectorAll('[data-filter]').forEach(btn=>btn.addEventListener('click',()=>{state.filter=btn.dataset.filter;document.querySelectorAll('[data-filter]').forEach(b=>b.setAttribute('aria-pressed',String(b===btn)));applyFilters()}));
+  let prevSize=0;window.addEventListener('resize',()=>{const size=layout();if(size!==prevSize){prevSize=size;applyFilters(false)}});
+  prevSize=layout();if(!loadCache())setSkeleton();refresh();
+})();
 </script>
-
 </body>
-</html> 
+</html>
