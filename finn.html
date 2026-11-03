@@ -1,58 +1,43 @@
 
-const http = require('node:http');
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>FINN HTML Test</title>
+</head>
+<body>
 
-const FINN_URL = 'https://www.finn.no/recommerce/seller/553930947';
+<h2>FINN HTML</h2>
+<div id="result">Yükleniyor...</div>
 
-http.createServer(async (req, res) => {
-  if (req.url === '/api/finn') {
-    try {
-      const response = await fetch(FINN_URL);
+<script>
+function receiveFinn(data) {
+  const html = data.html;
 
-      if (!response.ok) {
-        throw new Error(`FINN HTTP ${response.status}`);
-      }
+  const doc = new DOMParser()
+    .parseFromString(html, 'text/html');
 
-      const html = await response.text();
+  document.getElementById('result').textContent =
+    'HTML alındı: ' + html.length +
+    ' karakter | Başlık: ' + doc.title;
 
-      res.writeHead(200, {
-        'Content-Type': 'text/html; charset=utf-8'
-      });
-      res.end(html);
-    } catch (error) {
-      res.writeHead(502);
-      res.end(error.message);
-    }
-    return;
-  }
+  console.log('FINN HTML:', html);
+}
 
-  res.writeHead(200, {
-    'Content-Type': 'text/html; charset=utf-8'
-  });
+const script = document.createElement('script');
 
-  res.end(`
-    <h2>FINN Satıcı Bilgileri</h2>
-    <div id="result">Yükleniyor...</div>
+script.src =
+  'https://script.google.com/macros/s/' +
+  'AKfycbxorZi_QP5Rh8a6NCvdPYY2r6OmsBVyVRjUvE4j3BAox2FE9Jdwj37U4AMWl7S-5cLiSA' +
+  '/exec?callback=receiveFinn';
 
-    <script>
-      async function load() {
-        const result = document.getElementById('result');
+script.onerror = () => {
+  document.getElementById('result').textContent =
+    'Apps Script yüklenemedi.';
+};
 
-        try {
-          const response = await fetch('/api/finn');
-          if (!response.ok) throw new Error(await response.text());
+document.head.appendChild(script);
+</script>
 
-          const html = await response.text();
-          const doc = new DOMParser().parseFromString(html, 'text/html');
-
-          result.textContent = doc.title || 'Başlık bulunamadı';
-        } catch (error) {
-          result.textContent = error.message;
-        }
-      }
-
-      load();
-    </script>
-  `);
-}).listen(3000, () => {
-  console.log('http://localhost:3000');
-});
+</body>
+</html>
