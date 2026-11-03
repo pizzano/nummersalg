@@ -1,43 +1,28 @@
-
 <!DOCTYPE html>
-<html lang="tr">
-<head>
-  <meta charset="UTF-8">
-  <title>FINN HTML Test</title>
-</head>
+<html>
 <body>
+<h1>JavaScript Fetch API</h1>
+<h2>Fetching a Text File</h2>
 
-<h2>FINN HTML</h2>
-<div id="result">Yükleniyor...</div>
+<p id="demo"></p>
 
 <script>
-function receiveFinn(data) {
-  const html = data.html;
+let file = "https://script.google.com/macros/s/AKfycbxorZi_QP5Rh8a6NCvdPYY2r6OmsBVyVRjUvE4j3BAox2FE9Jdwj37U4AMWl7S-5cLiSA/exec";
 
-  const doc = new DOMParser()
-    .parseFromString(html, 'text/html');
+// Fetch a file
+fetch(file)
+  .then(function(response) {
+    return response.text();
+  })
+  .then(function(data) {
+    myDisplayer(data);
+  });
 
-  document.getElementById('result').textContent =
-    'HTML alındı: ' + html.length +
-    ' karakter | Başlık: ' + doc.title;
-
-  console.log('FINN HTML:', html);
+// Function to display any text
+function myDisplayer(text) {
+  document.getElementById("demo").innerText = text;
 }
-
-const script = document.createElement('script');
-
-script.src =
-  'https://script.google.com/macros/s/' +
-  'AKfycbxorZi_QP5Rh8a6NCvdPYY2r6OmsBVyVRjUvE4j3BAox2FE9Jdwj37U4AMWl7S-5cLiSA' +
-  '/exec?callback=receiveFinn';
-
-script.onerror = () => {
-  document.getElementById('result').textContent =
-    'Apps Script yüklenemedi.';
-};
-
-document.head.appendChild(script);
 </script>
 
 </body>
-</html>
+</html> 
